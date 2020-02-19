@@ -1,0 +1,100 @@
+<div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- <div class="col-md-2">
+                    <app-sidebar></app-sidebar>
+                </div> -->
+                <div class="container-fluid" style="background-color:#F8F9FA">
+                    
+                    <div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="topic">
+                                        Class-room Registration
+                                    </h2>
+                                </div>
+                            </div>
+                            <hr>
+                        </div>
+                        <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
+                            <mat-card class="border text-center p-5 reg-frm" [formGroup]="ClassRegistrationForm">
+                                <img src="../../../assets/logo/logo.png" style="width:40%; margin-bottom: 50px">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <label class="top_txt">Class Room Name : </label>
+                                        <input formControlName="classname" type="text" class="form-control box_border" name="name">
+                                        <!-- <small class="text-danger">Class-room name is required *</small> -->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="top_txt">Grade : </label>
+                                        <input formControlName="grade" type="text" class="form-control box_border" name="grade">
+                                        <!-- <small class="text-danger">Class-room name is required *</small> -->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="top_txt">Medium : </label>
+                                        <input formControlName="medium" type="text" class="form-control box_border" name="medium">
+                                        <!-- <small class="text-danger">Class-room name is required *</small> -->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="top_txt">Class Head teacher name: </label>
+                                        <input formControlName="teachername" type="text" class="form-control box_border" name="teachername">
+                                        <!-- <small class="text-danger">Class-room name is required *</small> -->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="top_txt">Class Head teacher id: </label>
+                                        <input formControlName="classhead" type="text" class="form-control box_border" name="teacherid">
+                                        <!-- <small class="text-danger">Class-room name is required *</small> -->
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label class="top_txt">Number of Student: </label>
+                                        <input formControlName="numberofStudent" type="text" class="form-control box_border" name="nos">
+                                        <!-- <small class="text-danger">Class-room name is required *</small> -->
+                                    </div>
+
+    
+                                    <!-- {{CertificationForm.value | json}} -->
+                                    <!-- <div class="col-md-4">
+                                        <button mat-raised-button class="add_btn"><img
+                                                src="../../../../assets/icons/searchengin-brands.svg" style="width: 20px">
+                                            Add</button>
+                                    </div> -->
+                                </div>
+                                <div class="col-md-4">
+                                    <button mat-raised-button class="add_btn" (click)="addClass(CertificationForm.value)"><img
+                                            src="../../../../assets/icons/searchengin-brands.svg" style="width: 20px">
+                                        Add</button>
+                                </div>
+                            </mat-card>
+                        </div>
+                        <!-- [{{#each userData}}] -->
+    
+                        <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
+                            <mat-card class="border text-center p-5 reg-frm" [formGroup]="CertificationForm">
+                                
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>Class</th>
+                                            <th>Class Head</th>
+                                            <th>Medium</th>
+                                            <th>Number of Student</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngFor="let class of classes">
+                                        <tr>
+                                            <td>{{class.classname}}</td>
+                                            <td>{{class.classhead}}</td>
+                                            <td>{{class.medium}}</td>
+                                            <td>{{class.numberofStudent}}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </mat-card>
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

@@ -1,0 +1,96 @@
+<div class="row" *ngIf="flag" style="display: block;">
+    <div class="container-fluid back_gr">
+        <app-navbar2></app-navbar2>
+        
+        <div class="row">
+            <div class="container-fluid col-md-12 col-xs-12">
+                <div class="text-center container" style="margin-top: 100px;margin-bottom: 130px;">
+                    <div class="row">
+                        <div class="col-md-6" style="margin-top: 20px;">
+                            
+
+                            <div class="row menu_div" routerLink="../academic_subject" style="width: 70%;float: left;">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #d50000;">
+                                    <i class="material-icons menu_icon">school</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">Academics</p>
+                                </div>
+                            </div>
+                            <div class="row menu_div" routerLink="../notifications" style="width: 70%;float: left;">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #5d4037;">
+                                    <i class="material-icons menu_icon">notifications_active</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">Notifications</p>
+                                </div>
+                            </div>
+                            <div class="row menu_div" routerLink="../prepare_certification" style="width: 70%;float: left;" *ngIf="userdeatail.usertype == 'Principal'">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #880e4f;">
+                                    <i class="material-icons menu_icon">receipt</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">Prepare Certification</p>
+                                </div>
+                            </div>
+                            <div class="row menu_div" routerLink="../certification" style="width: 70%;float: left;" *ngIf="userdeatail.usertype == 'Student'">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #880e4f;">
+                                    <i class="material-icons menu_icon">receipt</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">Certification</p>
+                                </div>
+                            </div>
+                            <div class="row menu_div" routerLink="../attendance" style="width: 70%;float: left;" *ngIf="userdeatail.usertype == 'Teacher' || userdeatail.usertype == 'Principal' ">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #1a237e;">
+                                    <i class="material-icons menu_icon">emoji_people</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">Attendence</p>
+                                </div>
+                            </div>
+                            <div class="row menu_div" routerLink="../extra_curricular" style="width: 70%;float: left;">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #f57f17;">
+                                    <i class="material-icons menu_icon">sports_handball</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">Extra Curricular</p>
+                                </div>
+                            </div>
+                            <div class="row menu_div" routerLink="../student_progress" style="width: 70%;float: left;">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #1b5e35;">
+                                    <i class="material-icons menu_icon">poll</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">My Progress</p>
+                                </div>
+                            </div>
+                           
+                            
+                            <div class="row menu_div" routerLink="../manage_marks" style="width: 70%;float: left;" *ngIf="userdeatail.usertype == 'Teacher'  ">
+                                <div class="col-md-2 menu_icon_back" style="background-color: #263238;">
+                                    <i class="material-icons menu_icon">score</i>
+                                </div>
+                                <div class="col-md-10 menu_text_back">
+                                    <p class="menu_text">Manage Marks</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <p class="ehaeaven">EHeaven</p>
+                            <p class="subEheaven">Student Management &</p>
+                            <p class="subEheaven">Learning Platform</p>
+
+                            <p class="quotesTop">“The difference between school and life? In school, you're taught a lesson 
+                                and then given a test. In life, you're given a test that teaches you a lesson.”</p>
+                            <p class="quotesSub">- Tom Bodett</p>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+.src_btn {
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  height: 37px;
+  width: 100%;
+}
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+.box_border {
+  border-radius: 3px;
+}
+.src_icon {
+  width: 10px;
+  position: absolute;
+}
+.reg-form {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.reg-frm {
+  padding-top: 40px;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+.reg_btn {
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+}
+.del_btn {
+  color: aliceblue;
+  background-color: rgb(202, 0, 0);
+  border-color: rgb(202, 0, 0);
+}
+.box_border {
+  border-radius: 3px;
+}
+.pick_btn {
+  width: 60%;
+}
+
+
+.err_msg {
+  // margin-top: -15px;
+  color: red;
+  text-align: left;
+  font-size: 10px;
+}
+.profile_matcard {
+  text-align: center;
+  // padding-right: 10px;
+  width: 100%;
+}
+
+.profile-pic {
+  margin: auto;
+  padding-top: 30px;
+  text-align: center;
+  width: 280px;
+  height: 320px;
+}
+
+.reset_btn {
+  margin-top: 20px;
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  height: 37px;
+  // width: 100%;
+}

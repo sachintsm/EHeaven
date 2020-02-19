@@ -1,0 +1,55 @@
+.nav-itm {
+    padding-right: 0px;
+    font-size: 0.9em;
+  }
+  .nav_item:hover {
+    border-bottom: solid 3px #2bb5f5;
+    transition: 0.1s;
+  }
+  @font-face {
+    font-family: side_font;
+    src: url(../../../../assets/Fonts/Roboto-Regular.ttf);
+  }
+  
+  .navbar_shadow {
+    // box-shadow: 0px 5px 5px grey;
+    background-color:rgba(0, 0, 0,.5);
+    // opacity: 0.2;
+    // position: fixed;
+  }
+  
+  .logo {
+    width: 25%;
+  }
+  
+  .logo:hover {
+    cursor: pointer;
+  }
+  
+  .nav_bar {
+    margin-left: 15px;
+  }
+  
+  .example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+  
+  .btn {
+    color: #ffffff;
+    height: 62px;
+    font-family: side_font;
+  }
+  .btn:hover{
+    color: #2bb5f5;
+    transition: 0.5s;
+  }
+  .usertype{
+    color: white;
+    font-size: 15px;
+    margin: auto;
+    font-family: side_font;
+  }

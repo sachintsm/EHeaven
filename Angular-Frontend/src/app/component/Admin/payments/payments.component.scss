@@ -1,0 +1,106 @@
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic{
+  color:  rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+.topic1{
+  color: rgb(0, 140, 255);;
+  font-weight:500 ;
+  font-family: topic_font;
+}
+.err_msg{
+  color: red;
+  text-align: left;
+  font-size: 10px;
+}
+
+.body
+{
+  background-color:white;
+  // height: 100px;
+}
+
+#textbox{
+  height: 200px;
+}
+
+.border{
+  border-style: ridge;
+  width: 1000px;
+
+}
+.box_border{
+  border-radius: 3px;
+}
+
+.reg-frm{
+  padding-top: 40px;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.reg-form{
+  padding-bottom: 50px;
+}
+
+.reg_btn{
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color:  rgb(0, 140, 255);
+  margin-top: 25px;
+  width: 100%;
+}
+
+.reg_btn:hover{
+  background-color: rgb(0, 89, 162);
+}
+
+.pick_btn{
+  width: 30%;
+}
+
+
+// news crad csssfile
+
+.body
+{
+  background-color:white;
+  height: 150px;
+}
+.flashMessage{
+  padding-top: 5px;
+  height: 20px;
+  margin-bottom: -10px;
+  width: 100%;
+}
+
+
+.search_btn {
+  color: white;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  margin-top: 30px;
+  width: 100%;
+}
+.search_btn:hover {
+  background-color: rgb(0, 89, 162);
+}
+
+.top_txt {
+  font-size: 10px;
+  color: rgb(88, 88, 88);
+  text-align: left;
+}
+.mat_cls
+{
+  margin-top: 25px;
+}

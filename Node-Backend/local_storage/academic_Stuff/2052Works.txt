@@ -1,0 +1,27 @@
+done ->
+
+Login -  Sachin 
+profile - sachin
+Academics - sachin
+Certification - Lalinda
+Notification - Sachin 
+Manage Marks - Pradeepa
+Search user- sachin
+news feeds - Ashan
+prepare certification - lalinda
+mail box - sachin
+user registreation - sachin/ pradeepa
+class time table - sachin
+teacher time table - sachin
+Academic subject - lalinda
+
+Pending ->
+
+Home - Sachin
+Menu - Sachin
+Admin dashboard - sachin / ..
+Attendence - Pradeepa
+My Progress - Sachin
+Extara curricular - lalinda
+Payment handling - Ashan
+event handling - Ashan

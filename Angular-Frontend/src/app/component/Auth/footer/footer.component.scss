@@ -1,0 +1,80 @@
+.footer{
+    height: 330px;
+    background-color: #212121;
+}
+
+.footer_icn{
+    text-align: right;
+}
+
+.footer_txt{
+    text-align: left;
+}
+
+.fb:hover{
+    width: 40px;
+    cursor: pointer;
+    filter: invert(0.3) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.fb {
+    width: 40px;
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+}
+.twit:hover{
+    cursor: pointer;
+    width: 40px;
+    filter: invert(0.5) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+.twit {
+    width: 40px;
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+}
+.insta:hover{
+    cursor: pointer;
+    width: 40px;
+    // background-color: aliceblue;
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+}
+
+.insta {
+    width: 40px;
+    filter: invert(1) sepia(1) saturate(5) hue-rotate(175deg);
+}
+
+hr.hr_line{
+    border-top: 1px solid red;
+}
+
+hr.new1 {
+    border-top: 1px solid red;
+  }
+  hr {
+      margin-top: 20px;
+      height: 1px; 
+      border:none; 
+      color:white; 
+      background-color:white; 
+      width:80%; 
+      text-align:center; 
+    //   margin: 0 auto;
+    }
+
+    .footer_design{
+        color: #5f7e8e;
+        text-align: center;
+        font-size: 10px;
+        margin-top: -13px;
+
+        .a{
+            color: rgb(0, 136, 255);
+            cursor: pointer;
+        }
+    }
+
+    .contact_us{
+        color:rgb(247, 247, 247);
+        cursor: pointer;
+        text-decoration: underline;
+    }

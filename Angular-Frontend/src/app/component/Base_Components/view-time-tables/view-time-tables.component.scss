@@ -1,0 +1,72 @@
+.src_btn {
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  height: 37px;
+  width: 100%;
+}
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+.box_border {
+  border-radius: 3px;
+}
+.src_icon {
+  width: 10px;
+  position: absolute;
+}
+.src-form {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+.src-frm {
+  padding-top: 40px;
+  text-align: center;
+  margin: auto;
+}
+.err_msg {
+  // margin-top: -15px;
+  color: red;
+  text-align: left;
+}
+.mt_card{
+  width: 100%;
+  margin-bottom: 10px;
+  height: 50px;
+}
+.mt_head{
+  width: 100%;
+  margin-bottom: 10px;
+  height: 50px;
+  background-color: #1b5e35;
+}
+.mt_time{
+  width: 100%;
+  margin-bottom: 10px;
+  height: 50px;
+  background-color: #263238;
+}
+.data_head{
+  color: white;
+  font-weight: 500;
+}
+.data_time{
+  color: white;
+  font-weight: 500;
+}
+
+.clzName_teacher{
+  margin-left: 30px;
+  font-size: 30px;
+  color: rgb(0, 140, 255);
+}

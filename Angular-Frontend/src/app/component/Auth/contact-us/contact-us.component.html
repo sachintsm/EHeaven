@@ -1,0 +1,73 @@
+<div class="row" style="display: block;">
+    <div class="container-fluid back_gr">
+        <div class="row">
+            <div class="container">
+                
+                <div style="padding-top:50px; padding-bottom: 50px">
+                    <form class="border text-center p-5 reg-frm" [formGroup]="ContactusForm" style="background-color: white;">
+                        <div class="text-center container" style="padding-top: 80px;">
+                            <img src="../../../assets/logo/logo_Outline.png" style="width:40%; margin-bottom: 50px;">
+                        </div>
+                        <div class="row" style="text-align: left;margin-bottom: 20px;">
+                            <div class="col-md-5">
+                                <label>Full name :</label>
+                                <input type="text" class="form-control box_border" aria-describedby="textHelp"
+                                    name="name" formControlName="name">
+                                <div *ngIf="submitted && f.name.errors" class="err_msg">
+                                    <div *ngIf="f.name.errors.required">Full name is required *</div>
+                                    <div *ngIf="f.name.errors.maxlength">Full name must less than 100 characters</div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <label>E-mail :</label>
+                                <input type="text" class="form-control box_border" aria-describedby="textHelp"
+                                    name="email" formControlName="email">
+                                <div *ngIf="submitted && f.email.errors" class="err_msg">
+                                    <div *ngIf="f.email.errors.required">E-mail is required *</div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <label>Mobile number :</label>
+                                <input type="text" class="form-control box_border" aria-describedby="textHelp"
+                                    name="mobile" formControlName="mobile">
+                                <div *ngIf="submitted && f.mobile.errors" class="err_msg">
+                                    <div *ngIf="f.mobile.errors.required">Mobile number is required *</div>
+                                    <div *ngIf="f.mobile.errors.maxlength">Mobile number less than 10 numbers</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row"  style="margin-bottom: 20px;">
+                            <div class="col-md-12" style="text-align: left;">
+
+                                <label>Subject :</label>
+                                <input type="text" class="form-control box_border" aria-describedby="textHelp"
+                                    name="subject" formControlName="subject">
+                                <div *ngIf="submitted && f.subject.errors" class="err_msg">
+                                    <div *ngIf="f.subject.errors.required">Subject is required</div>
+                                    <div *ngIf="f.subject.errors.maxlength">Subject must less than 70 characters</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-12" style="text-align: left;">
+                                <label>Message :</label>
+                                <textarea type="text" class="form-control box_border" placeholder="Write a message here"
+                                    id="textbox" name="message" formControlName="message"></textarea>
+                                <div *ngIf="submitted && f.message.errors" class="err_msg">
+                                    <div *ngIf="f.message.errors.required">Message is required</div>
+                                    <div *ngIf="f.message.errors.maxlength">Message must less than 1200 characters</div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <p>&nbsp;</p>
+                        <button (click)="sendMessage(ContactusForm.value)" type="button"
+                            class="btn btn-info my-4 btn-block reg_btn ">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

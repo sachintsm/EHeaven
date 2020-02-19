@@ -1,0 +1,60 @@
+
+.reg-frm{
+  box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  padding-top: 40px;
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+.reg-form{
+  // padding-top:40px;
+  padding-bottom: 50px;
+}
+
+.reg_btn{
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color:  rgb(0, 140, 255);
+  box-shadow: 0px 5px 5px rgb(134, 132, 245);
+}
+
+.btn_1{
+  color: aliceblue;
+  background-color: rgb(76, 204, 128);
+  border-color:  rgb(76, 204, 128);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.btn_2{
+  color: aliceblue;
+  background-color: rgb(170, 48, 48);
+  border-color:  rgb(170, 48, 48);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+
+.mat-form-field{
+  width: 100%
+}
+
+
+.flashMessage{
+  padding-top: 5px;
+  height: 20px;
+  margin-bottom: -10px;
+  width: 100%;
+}

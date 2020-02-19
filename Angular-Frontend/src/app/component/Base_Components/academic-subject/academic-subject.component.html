@@ -1,0 +1,115 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="row">
+
+            <div class="container-fluid" style="background-color:#F8F9FA">
+                <div>
+                    <div class="container">
+                        <h2 class="topic">Academics</h2>
+                        <hr>
+                    </div>
+                    <mat-card class="academic-card">
+                        <div class="row">
+                            <img class="img_logo" src="../../../assets/logo/logo.png">
+                        </div>
+                        <div class="row">
+                            <p class="select_subject">SELECT YOUR SUBJECT</p>
+                        </div>
+
+                        <!-- serach subject div -->
+                        <form [formGroup]="subjectForm">
+                            <div class="container">
+                                <div class="row" style="width: 80%; margin: auto">
+                                    <div class="col-md-9 src_box">
+                                        <mat-select class="browser-default custom-select mb-4 "
+                                            formControlName="subject" [(ngModel)]="subject" name="subject">
+                                            <mat-option style="text-align: left" *ngFor='let subject of mySubject'
+                                                [value]="subject.subName">
+                                                {{subject.subName}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-info my-4 btn-block src_btn"
+                                            (click)=searchSubject()>Search</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <!-- adding subject div, this id only see teacher and admin -->
+                        <div *ngIf="userType == 'Administrator' || userType == 'Teacher'">
+                            <div class="container" style="padding-top: 40px;padding-left: 30px;padding-right: 30px;">
+                                <p style="font-size: 20px; font-weight: 500; color: rgb(0, 165, 0);">Add Subject</p>
+                                <hr>
+                            </div>
+                            <mat-card class="academicAdd-card">
+                                <form [formGroup]="addSubjectForm">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label>Attachment Type :</label>
+                                                <mat-select class="browser-default custom-select mb-4 box_border"
+                                                    formControlName="attachmentType" [(ngModel)]="attachmentType"
+                                                    name="attachmentType">
+                                                    <mat-option style="text-align: left"
+                                                        *ngFor='let attachmentType of attachment'
+                                                        [value]="attachmentType">
+                                                        {{ attachmentType }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label>Subject :</label>
+                                                <mat-select class="browser-default custom-select mb-4 box_border"
+                                                    [(ngModel)]="subjectName" name="SubjectName"
+                                                    formControlName="subjectName">
+                                                    <mat-option style="text-align: left"
+                                                        *ngFor='let subject of mySubject' [value]="subject.subName">
+                                                        {{subject.subName}}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </div>
+
+                                            <div class="col-md-3">
+                                                <label>Class Name :</label>
+                                                <input type="text" class="form-control box_border"
+                                                    formControlName="className" placeholder="5A" name="className"
+                                                    [(ngModel)]="className">
+                                            </div>
+
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label>File Name to Show :</label>
+                                                <input type="text" class="form-control box_border"
+                                                    formControlName="showName" placeholder="Science Tutorial 2"
+                                                    name="showName" [(ngModel)]="showName">
+                                            </div>
+                                            <div class="col-md-3" style="margin-top: 7px;">
+                                                <input type="file" style="display: none" name="academicFile"
+                                                    (change)="selectFile($event)" #fileInput>
+                                                <button class="btn btn-outline-primary my-4 btn-block" type="button"
+                                                    (click)="fileInput.click()">Attach a file</button>
+                                                <small class="form-text text-muted mb-4"
+                                                    style=" text-align: left; margin-top: -18px;">
+                                                    {{filename}}
+                                                </small>
+                                            </div>
+
+                                            <div class="col-md-3" style="margin-top: 7px">
+                                                <button class="btn btn-info my-4 btn-block submit_btn" type="submit"
+                                                    (click)="addSubect()">Submit</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </mat-card>
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

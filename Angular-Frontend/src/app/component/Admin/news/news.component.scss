@@ -1,0 +1,115 @@
+.body
+{
+  background-color:white;
+  height: 100px;
+}
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+
+#textbox{
+  height: 200px;
+}
+
+#textbox1{
+  height: 100px;
+}
+
+.border{
+  margin: auto;
+  border-style: ridge;
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  width: 1000px;
+
+}
+.box_border{
+  border-radius: 3px;
+
+}
+
+.reg-frm{
+  box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  padding-top: 40px;
+  width: 70%;
+  text-align: center;
+  margin: auto;
+}
+
+.reg-form{
+  padding-top:40px;
+  padding-bottom: 50px;
+}
+
+.reg_btn{
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color:  rgb(0, 140, 255);
+  box-shadow: 0px 5px 5px rgb(134, 132, 245);
+}
+.pick_btn{
+  width: 30%;
+}
+
+.flashMessage{
+  padding-top: 5px;
+  height: 20px;
+  margin-bottom: -10px;
+  width: 100%;
+}
+
+hr{
+  margin-top: -10px
+}
+.reg_btn{
+    color: aliceblue;
+    background-color: rgb(0, 140, 255);
+    border-color:  rgb(0, 140, 255);
+    box-shadow: 0px 5px 5px rgb(134, 132, 245);
+}
+
+.news-card {
+  margin-bottom: 20px;
+  max-width: 100%;
+  max-height: 500px;
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.example-header-image {
+  background-image: url("../../../../assets/backgrounds/profile-icon-1.png");
+  background-size: cover;
+}
+.delete_btn{
+  background-color:red;
+  width:100px;
+  color: #ffffff;
+}
+
+.edit_btn{
+  background-color: rgb(0, 140, 255);
+  width:100px;
+  color: #ffffff;
+}
+
+.attachment_icn{
+  width: 15px;
+}
+
+.err_msg{
+  color: red;
+  text-align: left;
+  font-size: 10px;
+}

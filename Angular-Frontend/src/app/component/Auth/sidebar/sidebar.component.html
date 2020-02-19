@@ -1,0 +1,226 @@
+<div class="side-bar container-fluid">
+    <span *ngIf="userDetail.usertype!='Administrator'">
+        <div class="sidebar_button2" routerLink="./admin_dashboard" routerLinkActive="nav-link active "
+            *ngIf="userDetail.usertype=='Administrator'">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">person</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Admin Portal</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button" routerLink="./academic_subject" routerLinkActive="nav-link active " >
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">school</i>
+                </div>
+                <div class="col-md-9 name">
+
+                    <p class="sidebar_links">&nbsp;Academics</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar_button2" routerLink="./notifications" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">notifications_active</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Notifications</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./certification" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn" style="margin-left: -5px">
+                    <i class="material-icons">&nbsp;receipt</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;&nbsp;Certification</p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="sidebar_button2" routerLink="./attendance" routerLinkActive="nav-link active" *ngIf="userDetail.usertype!='Teacher' ||userDetail.usertype!='Principal'">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">emoji_people</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Attendence</p>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="sidebar_button2" routerLink="./extra_curricular" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">sports_handball</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Extra Curricular</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar_button2" routerLink="./manage_marks" routerLinkActive="nav-link active "
+            *ngIf="userDetail.usertype=='Administrator'">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">score</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Manage Marks</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./student_progress" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">poll</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Student Progress</p>
+                </div>
+            </div>
+        </div>
+    </span>
+    <span *ngIf="userDetail.usertype=='Administrator'">
+        <div class="sidebar_button2" routerLink="./search_user" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">person</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Search User</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./news_feeds" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">event</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Add News Feeds </p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./notifications" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">notifications_active</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp;Notifications</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./add_notification" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">notification_important</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Add Notification </p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./payments" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">credit_card</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Payment Handling </p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./prepare_certification" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">touch_app</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Prepare certification</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./upcoming_event" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">event</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Event Handling</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./mail_box" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">mail_outline</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Mail Box</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./register" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">person_add</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; User Registration</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./add_cls_tt" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">add</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Classes Time Table</p>
+                </div>
+            </div>
+        </div>
+        <div class="sidebar_button2" routerLink="./add_techr_tt" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">add</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Teacher Time Table</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sidebar_button2" routerLink="./subjects" routerLinkActive="nav-link active ">
+            <div class="row">
+                <div class="col-md-1 icn">
+                    <i class="material-icons">assignment</i>
+                </div>
+                <div class="col-md-9 name">
+                    <p class="sidebar_links">&nbsp; Academic Subjects</p>
+                </div>
+            </div>
+        </div>
+    </span>
+    <div class="sidebar_button2" routerLink="./view_time_table" routerLinkActive="nav-link active ">
+        <div class="row">
+            <div class="col-md-1 icn">
+                <i class="material-icons">notifications_active</i>
+            </div>
+            <div class="col-md-9 name">
+                <p class="sidebar_links">&nbsp;View Time Tables</p>
+            </div>
+        </div>
+    </div>
+</div>

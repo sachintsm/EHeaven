@@ -1,0 +1,67 @@
+@font-face {
+    font-family: topic_font;
+    src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+  }
+  
+  .topic {
+    color: rgb(0, 140, 255);
+    font-weight: 300;
+    padding-top: 50px;
+    font-family: topic_font;
+    font-weight: 300;
+  }
+.src_btn{
+    color: aliceblue;
+    background-color: rgb(0, 140, 255);
+    border-color:  rgb(0, 140, 255);
+    box-shadow: 0px 5px 5px rgb(134, 132, 245);
+    height: 37px;
+    width: 100%;
+    margin: auto;
+}
+
+.box_border{
+    border-radius: 3px;
+}
+.src_icon{
+    width: 10px;
+    position: absolute;
+}
+
+.reg-frm{
+    box-shadow: 0px 5px 5px rgb(134, 132, 245);
+    padding-top: 40px;
+    width: 90%;
+    text-align: center;
+    margin: auto;
+}
+
+.del_btn{
+    color: aliceblue;
+    background-color: rgb(202, 0, 0);
+    border-color:  rgb(202, 0, 0);
+    box-shadow: 0px 5px 5px rgb(135, 0, 0);
+}
+
+.err_msg{
+    // margin-top: -15px;
+    color: red;
+    text-align: left;
+    font-size: 10px;
+}
+
+.thStyle{
+    text-align: left;
+    color: rgb(90, 90, 90);
+    font-weight: 500;
+}
+.stname{
+    text-align: left;
+}
+.stid{
+    text-align: left;
+}
+.stmarks{
+    text-align: center;
+    width: 100px;
+}

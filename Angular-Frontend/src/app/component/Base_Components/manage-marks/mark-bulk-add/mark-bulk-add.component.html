@@ -1,0 +1,59 @@
+<div class="container" >
+    <div class="row" style="margin-top: 50px;">
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Select Class</mat-label>
+                <mat-select #class>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let class of classlist" [value]="class.classname">{{class.classname}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <p>{{class.value}}</p>
+        
+        </div>
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Select Year</mat-label>
+                <mat-select #year>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let year of years" [value]="year">{{year}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <p>{{year.value}}</p>
+        </div>
+        <div class="col-3">
+            <mat-form-field>
+                <mat-label>Select Term</mat-label>
+                <mat-select #term>
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let term of terms" [value]="term">{{term+" Term"}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <p>{{term.value}}</p>
+        </div>
+        <div class="col-3">
+          <mat-form-field>
+              <mat-label>Select Subject</mat-label>
+              <mat-select #subject>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let sub of mySubject;i as index" [value]="sub.subName">{{sub.subName}}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <p>{{subject.value}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+        <form style="padding-top: 100px; margin: auto;">
+            
+            <label for="file">Choose File</label><hr>
+            <input type="file" id="file" (change)="handleFileInput($event.target.files)" accept="text/*">
+            
+
+            
+            <button class="btn btn-info my-4 btn-block" type="submit"
+                (click)="bulkRegistration(class.value,year.value,term.value,subject.value)">Submit
+                Now</button>
+        </form>
+    </div>
+    

@@ -1,0 +1,62 @@
+<div class="container-fluid" style="background-color:#333333">
+        <p style="text-align: center; margin-top: 30px; margin-bottom: -30px">
+            <img src="../../../assets/icons/chevron-down-solid.svg" style="width: 20px; ">
+        </p>
+        <p class="news_head">- Gallery - </p>
+    </div>
+
+    <!-- //slideshow division  -->
+    <div class="container-fluid" style="background-color: #333333;">
+        <mdb-carousel class="carousel slide carousel-fade" [animation]="'carousel-fade'">
+            <mdb-carousel-item>
+                <div class="view w-100">
+                    <img class="d-block w-100" src="../../../assets/slideshow/1.jpg" alt="First slide">
+                    <!-- <div class="mask rgba-black-light waves-light" mdbWavesEffect></div> -->
+                </div>
+                <!-- <div class="carousel-caption">
+                    <h3 class="h3-responsive">Light mask</h3>
+                    <p>First text</p>
+                </div> -->
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+                <div class="view w-100">
+                    <img class="d-block w-100" src="../../../assets/slideshow/2.jpg" alt="Second slide">
+                    <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+                </div>
+                <!-- <div class="carousel-caption">
+                    <h3 class="h3-responsive">Strong mask</h3>
+                    <p>Secondary text</p>
+                </div> -->
+            </mdb-carousel-item>
+            <mdb-carousel-item>
+                <div class="view w-100">
+                    <img class="d-block w-100" src="../../../assets/slideshow/3.jpg" alt="Third slide">
+                    <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+                </div>
+                <!-- <div class="carousel-caption">
+                    <h3 class="h3-responsive">Slight mask</h3>
+                    <p>Third text</p>
+                </div> -->
+            </mdb-carousel-item>
+        </mdb-carousel>
+
+    </div>
+    <div class="container-fluid" style="background-color:#333333; height: 20px;"></div>
+
+    <!-- //photo collection division  -->
+    <div class="container-fluid" style="background-color:#333333">
+        <div class="row">
+            <div class="col-md-4">
+                <img src="../../../assets/slideshow/1.jpg" style="width: 102%">
+            </div>
+            <div class="col-md-4">
+                <img src="../../../assets/slideshow/2.jpg" style="width: 102%; margin-left: -5px">
+            </div>
+            <div class="col-md-4">
+                <img src="../../../assets/slideshow/3.jpg" style="width: 102%; margin-left: -10px">
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="container-fluid" style="background-color:#333333; height: 20px;"></div>

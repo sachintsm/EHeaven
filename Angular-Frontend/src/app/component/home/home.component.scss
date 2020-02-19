@@ -1,0 +1,161 @@
+.back_gr {
+  background: linear-gradient(rgb(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../../assets/backgrounds/RWP_1112.jpg");
+  min-height: 750px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  margin-top: -64px;
+}
+
+@font-face {
+  font-family: myfont;
+  src: url(../../../assets/Fonts/OLD.ttf);
+}
+
+
+.logo_img {
+  padding-top: 30px;
+  width: 100px;
+}
+.scl_name {
+  padding-top: 20px;
+  color: white;
+  text-align: center;
+  font-size: 100px;
+  font-family: myfont;
+  font-weight: bold;
+}
+.school_des {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-align: justify;
+}
+.school_map {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  text-align: justify;
+  padding-left: 30px;
+}
+.map {
+  padding-left: 30px;
+  width: 500px;
+}
+
+.example-header-image {
+  background-image: url("../../../../src/assets/backgrounds/profile-icon-1.png");
+  background-size: cover;
+}
+
+/**********************************************/
+.news_head {
+  text-align: center;
+  font-size: 50px;
+  font-family: "Courier New", Courier, monospace;
+  padding-top: 20px;
+  color: #e69f0e;
+}
+.news-card {
+  height: 500px;
+  width: 100%;
+}
+.news_feeds {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 70px;
+}
+
+.flip-box-front {
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+}
+
+.flip-box-back {
+  background-color: rgb(228, 135, 13);
+  color: black;
+  transform: rotateY(180deg);
+  height: 500px;
+  border-radius: 5px;
+  text-align: justify;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.flip-box {
+  height: 500px;
+  background-color: transparent;
+}
+
+.flip-box-inner {
+  position: relative;
+  width: 100%;
+  //   height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-box:hover .flip-box-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-box-front,
+.flip-box-back {
+  position: absolute;
+  width: 100%;
+  backface-visibility: hidden;
+}
+/**********************************************************************************************/
+.vision_txt {
+  font-size: 30px;
+  padding-top: 10px;
+  padding-bottom: 50px;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+.select-demo {
+  font-size: 45px;
+  font-family: "Oswald", sans-serif;
+  text-align: center;
+}
+.orange {
+  color: #e69f0e;
+}
+/**********************************************************************************************/
+.event_month {
+  font-size: 30px;
+  text-align: center;
+  padding-top: 5px;
+  color: white;
+}
+
+.event_date {
+  font-size: 60px;
+  margin-top: -35px;
+  text-align: center;
+  margin-bottom: -10px;
+  color: white;
+}
+
+.date_div {
+  background-color: #e69f0e;
+}
+.content_div {
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: white;
+}
+
+.content_div:hover {
+  background-color: #e2e2e2;
+  cursor: pointer;
+}
+.card-img{
+  max-height: 250px;
+}

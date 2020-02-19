@@ -1,0 +1,20 @@
+@font-face {
+    font-family: topic_font;
+    src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+  }
+
+  .topic{
+      color:  rgb(0, 140, 255);
+      font-weight: 300;
+      padding-top: 50px;
+      font-family: topic_font;
+      font-weight: 300;
+  }
+
+  .btn_1{
+    color: aliceblue;
+    background-color: rgb(76, 204, 128);
+    border-color:  rgb(76, 204, 128);
+    margin-left: 10px;
+    margin-right: 10px;
+  }

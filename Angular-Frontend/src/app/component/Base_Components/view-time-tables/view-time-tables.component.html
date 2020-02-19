@@ -1,0 +1,472 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid" style="background-color:#F8F9FA; min-height: 800px;">
+
+                <div>
+                    <div class="container-fluid">
+                        <h2 class="topic">Search User</h2>
+                        <hr>
+                    </div>
+                    <mat-tab-group style="width: 98%;margin: auto;">
+                        <mat-tab label="Search By Class">
+
+                            <div class="container-fluid" style="padding-top:50px ; padding-bottom:50px">
+                                <form class="text-center border p-5 src-frm" [formGroup]="SearchForm"
+                                    style="background-color: white;">
+                                    <img src="../../../assets/logo/logo.png" style="width:60%; margin-bottom: 50px">
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control box_border" placeholder="i.e : 1A"
+                                                name="id" [(ngModel)]="id" formControlName="id"
+                                                [ngClass]="{ 'is-invalid': submitted && f.id.errors }">
+                                            <div *ngIf="submitted && f.id.errors" class="err_msg">
+                                                <div *ngIf="f.id.errors.required">Class Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button class="btn src_btn box_border" type="submit"
+                                                (click)="searchclassTimeTable()">
+                                                <p style="margin-left: -20px;">Search &nbsp; <i
+                                                        class="material-icons src_icon">search</i></p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="container-fluid" *ngIf="classTimeTableDiv == true">
+                                <div class="row">
+                                    <form class="text-center border p-5 src-frm"
+                                        style="background-color: white;margin-bottom: 20px;width:98%">
+                                        <div class="row">
+                                            <p class="clzName_teacher">{{classTT.className}} - {{classTT.classTeacher}}
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">TIME</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">07.50 - 08.30</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">08.30 - 09.10</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">09.10 - 09.50</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">09.50 - 10.30</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">10.50 - 11.30</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">11.30 - 12.10</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">12.10 - 12.50</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">12.50 - 1.30</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">MONDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">TUESDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">WEDNESDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">THURSDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">FRIDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </mat-tab>
+
+                        <mat-tab label="Search By Teacher">
+
+                            <div class="container-fluid" style="padding-top:50px ; padding-bottom:50px">
+                                <form class="text-center border p-5 src-frm" [formGroup]="SearchForm"
+                                    style="background-color: white;">
+                                    <img src="../../../assets/logo/logo.png" style="width:60%; margin-bottom: 50px">
+
+                                    <div class="row">
+                                        <div class="col-md-9">
+                                            <input type="text" class="form-control box_border" placeholder="i.e : T000001"
+                                                name="id" [(ngModel)]="id" formControlName="id"
+                                                [ngClass]="{ 'is-invalid': submitted && f.id.errors }">
+                                            <div *ngIf="submitted && f.id.errors" class="err_msg">
+                                                <div *ngIf="f.id.errors.required">Class Name is required</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <button class="btn src_btn box_border" type="submit"
+                                                (click)="searchTeacherTimeTable()">
+                                                <p style="margin-left: -20px;">Search &nbsp; <i
+                                                        class="material-icons src_icon">search</i></p>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="container-fluid" *ngIf="teacherTimeTableDiv == true">
+                                <div class="row">
+                                    <form class="text-center border p-5 src-frm"
+                                        style="background-color: white;margin-bottom: 20px;width:98%">
+                                        <div class="row">
+                                            <p class="clzName_teacher">{{classTT.teacherId}} - {{classTT.teacherName}}
+                                            </p>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">TIME</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">07.50 - 08.30</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">08.30 - 09.10</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">09.10 - 09.50</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">09.50 - 10.30</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">10.50 - 11.30</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">11.30 - 12.10</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">12.10 - 12.50</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_time">
+                                                        <p class="data_time">12.50 - 1.30</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">MONDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.monday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">TUESDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.tuesday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">WEDNESDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.wednesday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">THURSDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.thursday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-2">
+                                                <div>
+                                                    <mat-card class="mt_head">
+                                                        <p class="data_head">FRIDAY</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].one}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].two}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].three}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].four}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].five}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].six}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].seven}}</p>
+                                                    </mat-card>
+                                                    <mat-card class="mt_card">
+                                                        <p class="mat_data">{{classTT.friday[0].eight}}</p>
+                                                    </mat-card>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </mat-tab>
+                    </mat-tab-group>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

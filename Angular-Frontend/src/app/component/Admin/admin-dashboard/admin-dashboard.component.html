@@ -1,0 +1,166 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid" style="background-color:#F8F9FA; padding-bottom: 10px; min-height: 700px;">
+
+                <mat-card class="container-fluid tct">
+                    <div class="row">
+
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../search_user">
+                                <div class="col-md-3">
+                                    <i class="material-icons btn_icn">person</i>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt" style="text-align: left;">Search User</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../news_feeds">
+                                <div class="col-md-3">
+                                    <img src="../../../../assets/icons/newspaper-regular.svg"
+                                        style="padding-left: 10px; width: 55px;padding-top: 5px">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Add News Feeds</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../add_notification">
+                                <div class="col-md-3">
+                                    <i class="material-icons btn_icn">notification_important</i>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Add Notification</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../payments">
+                                <div class="col-md-3">
+                                    <img src="../../../../assets/icons/hand-holding-usd-solid.svg"
+                                        style="padding-left: 10px; width: 55px;padding-top: 5px;">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Payment Handling</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../prepare_certification">
+                                <div class="col-md-3">
+                                    <i class="material-icons btn_icn">touch_app</i>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Prepare Certification <label
+                                            class="notice_label">{{preparecertCount}}
+                                        </label></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../upcoming_event">
+                                <div class="col-md-3">
+                                    <img src="../../../../assets/icons/calendar-check-solid.svg"
+                                        style="padding-left: 10px; width: 45px;padding-top: 5px">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Event Handling</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../mail_box">
+                                <div class="col-md-3">
+                                    <i class="material-icons btn_icn">mail_outline</i>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Mail Box<label class="notice_label"> {{mailCount}}
+                                        </label></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+
+
+
+                <mat-card class="container-fluid tct">
+                    <div class="row">
+                        <div class="col-md-3" routerLinkActive="router-link-active">
+                            <div class="row frist_div" [routerLink]="['../register']">
+                                <div class="col-md-3">
+                                    <i class="material-icons btn_icn">person_add</i>
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">User Registration</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../add_cls_tt">
+                                <div class="col-md-3">
+                                    <img src="../../../../assets/icons/calendar-alt-regular.svg"
+                                        style="padding-left: 10px; width: 45px;padding-top: 5px">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Classes Time Tables</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../add_techr_tt">
+                                <div class="col-md-3">
+                                    <img src="../../../../assets/icons/calendar-alt-regular.svg"
+                                        style="padding-left: 10px; width: 45px;padding-top: 5px">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Teachers' Time Tables</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="row frist_div" routerLink="../subjects">
+                                <div class="col-md-3">
+                                    <img src="../../../../assets/icons/newspaper-regular.svg"
+                                        style="padding-left: 15px; width: 60px;padding-top: 5px">
+                                </div>
+                                <div class="col-md-9">
+                                    <p class="btn_txt">Academic Subjects</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+                <mat-card class="container-fluid tct">
+                    <p style="color: rgb(0, 120, 218);font-size: 20px;">Notifications</p>
+                    <div class="row ">
+                        <div class="container notice_matCard" *ngFor="let nts of notices">
+                            <div class="row">
+                                <div class="col-md-1">
+                                    <i *ngIf="nts.state == 'Approved'" class="material-icons circle_read">
+                                        check_circle
+                                    </i>
+                                    <i *ngIf="nts.state == 'Pending'" class="material-icons circle_not_read">
+                                        check_circle
+                                    </i>
+                                </div>
+                                <div class="col-md-2" style="margin-left: -40px;font-weight: 500;color: rgb(97, 97, 97);">
+                                    {{nts.date | date:'yyyy-MM-dd HH:mm:ss'}}
+                                </div>
+                                <div class="col-md-8" style="margin-left: -10px;font-weight: 500;color: rgb(95, 95, 95)">
+                                    {{nts.subject}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </mat-card>
+
+
+            </div>
+        </div>
+    </div>
+</div>

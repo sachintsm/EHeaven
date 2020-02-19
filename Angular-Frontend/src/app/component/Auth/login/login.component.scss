@@ -1,0 +1,128 @@
+.login-form {
+  padding-top: 40px;
+}
+// linear-gradient(rgb(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+.bg-grd {
+  margin-top: -65px;
+  position: relative;
+  background-color: #f8f9fa;
+  background: url("../../../../assets/backgrounds/1775117.jpg");
+  height: 740px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+
+.login-frm {
+  float: right;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  width: 70%;
+  text-align: center;
+  animation: animate 1s linear ;
+  //   margin: auto;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0px 5px 5px rgb(36, 36, 36);
+}
+
+.login_btn {
+  width: 60%;
+  //   margin-top: 20px;
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  //   box-shadow: 0px 5px 5px rgb(134, 132, 245);
+}
+
+.box_border {
+  border-radius: 3px;
+}
+
+.err_msg {
+  // margin-top: -15px;
+  color: red;
+  text-align: left;
+  font-size: 10px;
+}
+// .fieldtxt{
+//     width: 1000px;
+// }
+
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+
+.ehaeaven {
+  margin-top: 130px;
+  margin-left: 20px;
+  position: relative;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  // text-transform: uppercase;
+  font-size: 100px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgb(252, 252, 252), rgb(245, 245, 245));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 1s linear ;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+.subEheaven{
+  margin-top: -25px;
+  margin-left: 20px;
+  position: relative;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  // text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 550;
+  // letter-spacing: 2px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgb(245, 245, 245), rgb(245, 245, 245));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 1s linear ;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+.quotesTop{
+  margin-left: 20px;
+  margin-top: 60px;
+  font-family: cursive;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  text-shadow: 1px 1px rgb(0, 0, 0);
+
+
+}
+.quotesSub{
+  margin-left: 350px;
+  margin-top: -10px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: cursive;
+  color: rgb(255, 255, 255);
+  font-size: 20px; 
+}

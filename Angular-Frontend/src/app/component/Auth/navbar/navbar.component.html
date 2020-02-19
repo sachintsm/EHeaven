@@ -1,0 +1,50 @@
+<div class="row">
+  <mat-toolbar class="navbar_shadow">
+    <mat-toolbar-row>
+      <span>
+        <a class="navbar-brand">
+          <img src="../../../assets/logo/logo_White_Bold.png" class="logo" routerLink="/">
+        </a>
+      </span>
+      <span class="example-spacer"></span>
+
+    
+      <span class="nav-itm nav_item">
+
+        <!-- <button mat-button routerLink="/" class="navbtn "> -->
+        <button mat-button routerLink="/" class="btn ">
+          <mat-icon>home</mat-icon>
+        </button>
+      </span>
+
+      <span class="nav-itm nav_item" *ngIf="cookies.logingStatus && cookies.userData.usertype != 'Administrator'" >
+        <button mat-button routerLink="/menu" (click)="menu()" class="btn">
+          <mat-icon>menu</mat-icon>&nbsp;Menu
+        </button>
+      </span>
+      <span class="nav-itm nav_item" *ngIf="cookies.logingStatus && cookies.userData.usertype == 'Administrator'" >
+        <button mat-button routerLink="/menu" (click)="portal()" class="btn">
+          <mat-icon>menu</mat-icon>&nbsp;Portal
+        </button>
+      </span>
+      <div class="nav-itm nav_item" *ngIf="cookies.logingStatus">
+        <button mat-button routerLink="/profile" (click)="userProfile()" class="btn ">
+          <mat-icon>person</mat-icon>&nbsp; {{cookies.profile}}
+        </button>
+      </div>
+      <span class="nav-itm nav_item" *ngIf="!cookies.logingStatus">
+        <button  mat-button routerLink="/login" class="btn ">Login</button>
+      </span>
+
+      <span class="nav-itm nav_item" *ngIf="cookies.logingStatus">
+
+        <button
+          
+          mat-button (click)="logoutUser()" class="btn ">Logout</button>
+      </span>
+      
+
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

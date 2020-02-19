@@ -1,0 +1,146 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="row">
+            <!-- <div class="col-md-2">
+                <app-sidebar></app-sidebar>
+            </div> -->
+            <div class="container-fluid " style="background-color:#F8F9FA">
+               
+                <div>
+                    <div class="container">
+                        <h2 class="topic">Academics</h2>
+                        <hr>
+                    </div>
+
+                    <!-- lectuer slides div -->
+                    <div class="container contentDiv">
+                        <h6>Lecture Slides</h6>
+                        <hr>
+                        <div class="sub_contentDiv">
+                            <div *ngFor="let lecSld of lecSlide">
+                                <div *ngIf="lecSld.attachmenttype == 'Lecture Slide'">
+                                    <div class="row"
+                                        style="margin-bottom: 5px;padding-right: 100px;padding-left: 20px;">
+                                        <div class="col-md-10">
+                                            <img class="icons"
+                                                src="../../../../assets/icons/file-powerpoint-solid.svg">&nbsp;&nbsp;
+                                            <a href="http://localhost:3000/academics/academicAttachment/{{lecSld.path}}"
+                                                class="content_txt">{{lecSld.showname}}</a>
+                                        </div>
+                                        <div class="col-md-1"
+                                            *ngIf="userType == 'Administrator' || userType == 'Teacher'">
+                                            <p style="color: rgb(138, 138, 138);">{{lecSld.class}}</p>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button *ngIf="userType == 'Administrator' || userType == 'Teacher'"
+                                                mat-raised-button color="warn" class="deletebtn"
+                                                (click)="deleteStuff($event,lecSld._id,lecSld.path)">
+                                                <i class="material-icons deleteIcon">delete_forever</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- tutorials div -->
+                    <div class="container contentDiv">
+                        <h6>Tutorials</h6>
+                        <hr>
+                        <div class="sub_contentDiv">
+                            <div *ngFor="let lecSld of lecSlide">
+                                <div *ngIf="lecSld.attachmenttype == 'Tutorial'">
+                                    <div class="row"
+                                        style="margin-bottom: 5px;padding-right: 100px;padding-left: 20px;">
+                                        <div class="col-md-10">
+                                            <img class="icons"
+                                                src="../../../../assets/icons/file-invoice-solid.svg">&nbsp;&nbsp;
+                                            <a href="http://localhost:3000/academics/academicAttachment/{{lecSld.path}}"
+                                                class="content_txt">{{lecSld.showname}}</a>
+                                        </div>
+                                        <div class="col-md-1"
+                                            *ngIf="userType == 'Administrator' || userType == 'Teacher'">
+                                            <p style="color: rgb(138, 138, 138);">{{lecSld.class}}</p>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button *ngIf="userType == 'Administrator' || userType == 'Teacher'"
+                                                mat-raised-button color="warn" class="deletebtn"
+                                                (click)="deleteStuff($event,lecSld._id,lecSld.path)"><i
+                                                    class="material-icons deleteIcon">
+                                                    delete_forever</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- resoures div -->
+                    <div class="container contentDiv">
+                        <h6>Resourses</h6>
+                        <hr>
+                        <div class="sub_contentDiv">
+                            <div *ngFor="let lecSld of lecSlide">
+                                <div *ngIf="lecSld.attachmenttype == 'Resources'">
+                                    <div class="row"
+                                        style="margin-bottom: 5px;padding-right: 100px;padding-left: 20px;">
+                                        <div class="col-md-10">
+                                            <img style="width: 20px; margin-top: -5px;"
+                                                src="../../../../assets/icons/internet-explorer-brands.svg">&nbsp;
+                                            <a href="http://localhost:3000/academics/academicAttachment/{{lecSld.path}}"
+                                                class="content_txt">{{lecSld.showname}}</a>
+                                        </div>
+                                        <div class="col-md-1"
+                                            *ngIf="userType == 'Administrator' || userType == 'Teacher'">
+                                            <p style="color: rgb(138, 138, 138);">{{lecSld.class}}</p>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button *ngIf="userType == 'Administrator' || userType == 'Teacher'"
+                                                mat-raised-button color="warn" class="deletebtn"
+                                                (click)="deleteStuff($event,lecSld._id,lecSld.path)"><i
+                                                    class="material-icons deleteIcon">
+                                                    delete_forever</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- other stuff dive -->
+                    <div class="container contentDiv" style="padding-bottom:50px;">
+                        <h6>Other</h6>
+                        <hr>
+                        <div class="sub_contentDiv">
+                            <div *ngFor="let lecSld of lecSlide">
+                                <div *ngIf="lecSld.attachmenttype == 'Other'">
+                                    <div class="row"
+                                        style="margin-bottom: 5px;padding-right: 100px;padding-left: 20px;">
+                                        <div class="col-md-10">
+                                            <img style="width: 17px; margin-top: -8px;"
+                                                src="../../../../assets/icons/clone-solid.svg">&nbsp;&nbsp;
+                                            <a href="http://localhost:3000/academics/academicAttachment/{{lecSld.path}}"
+                                                class="content_txt">{{lecSld.showname  }}</a>
+                                        </div>
+                                        <div class="col-md-1"
+                                            *ngIf="userType == 'Administrator' || userType == 'Teacher'">
+                                            <p style="color: rgb(138, 138, 138);">{{lecSld.class}}</p>
+                                        </div>
+                                        <div class="col-md-1">
+                                            <button *ngIf="userType == 'Administrator' || userType == 'Teacher'"
+                                                mat-raised-button color="warn" class="deletebtn"
+                                                (click)="deleteStuff($event,lecSld._id,lecSld.path)"><i
+                                                    class="material-icons deleteIcon">
+                                                    delete_forever</i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

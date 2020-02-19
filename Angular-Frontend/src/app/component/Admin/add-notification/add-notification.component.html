@@ -1,0 +1,50 @@
+<div class="row">
+
+  <div class="container-fluid" style="background-color:#F8F9FA">
+
+    <div>
+      <div class="container">
+        <h2 class="topic">New Notification</h2>
+        <hr>
+      </div>
+      <div style="padding-top:50px; padding-bottom: 50px">
+        <form class="border text-center p-5 reg-frm" [formGroup]="NotificationForm">
+          <img src="../../../assets/logo/logo.png" style="width:60%; margin-bottom: 50px">
+
+          <div class="form-row mb-4">
+            <label>Subject :</label>
+            <input type="text" class="form-control box_border" aria-describedby="textHelp" name="subject"
+              formControlName="subject">
+            <div *ngIf="submitted && f.subject.errors" class="err_msg">
+              <div *ngIf="f.subject.errors.required">Subject is required</div>
+              <div *ngIf="f.subject.errors.maxlength">Subject must less than 100 characters</div>
+            </div>
+          </div>
+
+          <div class="form-row mb-4">
+            <label>Message :</label>
+            <textarea type="text" class="form-control box_border" placeholder="Write a message here" id="textbox"
+              name="message" formControlName="message"></textarea>
+            <div *ngIf="submitted && f.message.errors" class="err_msg">
+              <div *ngIf="f.message.errors.required">Message is required</div>
+              <div *ngIf="f.message.errors.maxlength">Message must less than 1200 characters</div>
+            </div>
+          </div>
+
+          <input type="file" class="file_upload" style="display: none" name="profilepic" (change)="selectImage($event)"
+            #fileInput>
+
+          <button class="btn btn-outline-primary my-4 btn-block box_border pick_btn" type="button"
+            (click)="fileInput.click()" accept="image/*">Attach a file</button>
+          <small class="form-text text-muted mb-4" style=" text-align: left; margin-top: -18px;">
+            {{filename}}
+          </small>
+          <p>&nbsp;</p>
+          <button (click)="addNotice()" type="button" class="btn btn-info my-4 btn-block reg_btn box_border">Submit
+            for Approval</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

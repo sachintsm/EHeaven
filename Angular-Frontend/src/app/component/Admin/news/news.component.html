@@ -1,0 +1,186 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="container-fluid" style="background-color:#F8F9FA">
+        <div>
+          <div class="container" style="margin-top:50px">
+            <div class="row">
+              <div class="col-md-10">
+              <h2 class="topic">News Feeds</h2>
+              </div>
+              <div  class="col-md-2">
+                <button class="btn btn-info my-4 btn-block reg_btn box_border" (click)="onAdd($event)"><b>+</b> Add
+                  New</button>
+              </div>
+            </div>
+            <hr>
+
+
+          </div>
+          <div style="padding-top:50px ; padding-bottom:50px">
+
+            <div *ngIf="!editform" >
+              <div *ngIf="addnew">
+                <!-- new add form , this form popup when add new button press -->
+              <form class="border text-center p-5 reg-frm" [formGroup]="NewsForm" style="background-color: white;">
+
+                <!-- news topic input feild -->
+                <h4 class="topic" style="text-align: center; margin-top: -80px; padding-top: 50px;">New News Add  </h4>
+                <div class="form-group">
+                  <p style="text-align: left">Topic :</p>
+                  <input type="text" class="form-control box_border" aria-describedby="textHelp" name="topic"
+                    formControlName="topic">
+                    <!-- validation  -->
+                  <div *ngIf="submitted && f.topic.errors" class="err_msg">
+                    <div *ngIf="f.topic.errors.required">News topic is required</div>
+                    <div *ngIf="f.topic.errors.maxlength">News topic must less than 35 characters</div>
+                  </div>
+                </div>
+                <!-- new summery input field -->
+                <div class="form-row mb-4">
+                  <p style="text-align: left;">News Summary :</p>
+                  <textarea type="text" class="form-control box_border" aria-describedby="textHelp" name="newsSumery"
+                    id="textbox1" formControlName="newsSumery"></textarea>
+                     <!-- validation  -->
+                  <div *ngIf="submitted && f.newsSumery.errors" class="err_msg">
+                    <div *ngIf="f.newsSumery.errors.required">News Summary is required</div>
+                    <div *ngIf="f.newsSumery.errors.maxlength">News Summary must less than 400 characters</div>
+                  </div>
+                </div>
+
+                <!-- news input field -->
+                <div class="form-row mb-4">
+                  <label>News :</label>
+                  <textarea type="text" class="form-control box_border" aria-describedby="textHelp" name="currentNews"
+                    id="textbox" formControlName="news"></textarea>
+                     <!-- validation  -->
+                  <div *ngIf="submitted && f.news.errors" class="err_msg">
+                    <div *ngIf="submitted && f.news.errors">News is required</div>
+                    <div *ngIf="f.news.errors.maxlength">News must less than 800 characters</div>
+                  </div>
+                </div>
+
+
+                <!-- image select field -->
+                <input type="file" class="file_upload" style="display: none" name="newspic" accept="image/*"
+                  (change)="selectImage($event)" #fileInput>
+
+                <button class="btn btn-outline-primary my-4 btn-block box_border pick_btn" type="button"
+                  (click)="fileInput.click()" accept="image/*">Choose Image </button>
+                <small class="form-text text-muted mb-4" style=" text-align: left; margin-top: -18px">
+                  {{filename}}
+                </small>
+                <p>&nbsp;</p>
+                <button (click)="addnews()" type="submit"
+                  class="btn btn-info my-4 btn-block reg_btn box_border upload_btn" upload_btn>Upload</button>
+
+              </form>
+            </div>
+          </div>
+
+
+            <!-- news edit form this form popup when news edit button press-->
+
+            <div *ngIf="editform" >
+              <form class="border text-center p-5 reg-frm" [formGroup]="NewsForm" style="background-color: white ;">
+
+                <img src="../../../assets/logo/logo.png" style="width:60%; margin-bottom: 50px">
+
+                <div class="form-group">
+                  <p style="text-align: left">Topic :</p>
+
+
+                  <input type="text" class="form-control box_border" aria-describedby="textHelp" name="topic"
+                    formControlName="topic" [(ngModel)]="newsEdit.topic">
+                   <!-- validation  -->
+                  <div *ngIf="submitted && f.topic.errors" class="err_msg">
+                    <div *ngIf="f.topic.errors.required">News topic is required</div>
+                    <div *ngIf="f.topic.errors.maxlength">News topic must less than 35 characters</div>
+                  </div>
+                </div>
+
+                <div class="form-row mb-4">
+                  <p style="text-align: left;">News Summary :</p>
+                  <textarea type="text" class="form-control box_border" aria-describedby="textHelp" name="newsSumery"
+                    id="textbox1" formControlName="newsSumery" [(ngModel)]="newsEdit.newsSumery"></textarea>
+                     <!-- validation  -->
+                  <div *ngIf="submitted && f.newsSumery.errors" class="err_msg">
+                    <div *ngIf="f.newsSumery.errors.required">News Summary is required</div>
+                    <div *ngIf="f.newsSumery.errors.maxlength">News Summary must less than 400 characters</div>
+                  </div>
+                </div>
+
+                <div class="form-row mb-4">
+                  <label>News :</label>
+                  <textarea type="text" class="form-control box_border" aria-describedby="textHelp" name="news"
+                    id="textbox" formControlName="news" [(ngModel)]="newsEdit.news"></textarea>
+                     <!-- validation  -->
+                  <div *ngIf="submitted && f.news.errors" class="err_msg">
+                    <div *ngIf="submitted && f.news.errors">News is required</div>
+                    <div *ngIf="f.news.errors.maxlength">News must less than 800 characters</div>
+                  </div>
+                </div>
+
+
+                <input type="file" class="file_upload" style="display: none" name="newspic" accept="image/*"
+                  (change)="selectImage($event)" #fileInput>
+
+                <button class="btn btn-outline-primary my-4 btn-block box_border pick_btn" type="button"
+                  (click)="fileInput.click()" accept="image/*">Choose Image </button>
+                <small class="form-text text-muted mb-4" style=" text-align: left; margin-top: -18px">
+                  {{newsEdit.filePath}}
+                </small>
+                <p>&nbsp;</p>
+                <button (click)="updatenews($event)" type="submit"
+                  class="btn btn-info my-4 btn-block reg_btn box_border upload_btn" upload_btn>Update</button>
+              </form>
+            </div>
+          </div>
+
+
+          <!-- news view form , this form use mat card for view each news seperatly -->
+
+          <div *ngIf="viewform" >
+            <div *ngIf="!addnew">
+          <div class="container" style="margin-top: -80px;">
+            <div>
+              <br>
+              <div style="padding-left: 35px; padding-right: 35px">
+                <mat-card class="news-card" *ngFor="let new of news">
+
+                  <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{new.topic}}</mat-card-title>
+                    <mat-card-subtitle style="margin-top:-15px">{{new.date | date:'yyyy-MM-dd HH:mm:ss'}}
+                    </mat-card-subtitle>
+                  </mat-card-header>
+
+                  <mat-card-content>
+                    <h6>{{new.newsSumery}}</h6> 
+                    <p>{{new.news}}</p>
+                  </mat-card-content>
+
+                  <mat-card-subtitle *ngIf="new.filePath" style="padding-right: 20px"><a
+                      href="http://localhost:3000/news/newsAttachment/{{new.filePath}}"><img
+                        src="../../../../assets/icons/paperclip-solid.svg"
+                        class="attachment_icn">&nbsp;&nbsp;Attachment</a>
+                  </mat-card-subtitle>
+
+                  <mat-card-actions style="text-align: right">
+
+                    <button mat-raised-button class="edit_btn" (click)=" onEdit($event , new._id ,new.filePath)">Edit</button>
+                    <button mat-raised-button class="delete_btn"
+                      (click)="delete($event, new._id, new.filePath)">Delete</button>
+                  </mat-card-actions>
+                </mat-card>
+              </div>
+            </div>
+          </div>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

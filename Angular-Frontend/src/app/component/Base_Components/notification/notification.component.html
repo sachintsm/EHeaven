@@ -1,0 +1,135 @@
+<div class="row">
+    <div class="container-fluid" style="background-color:#F8F9FA">
+        <div>
+            <div class="container" style="margin-top: 50px;" >
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2 class="topic">Notification
+                        </h2>
+                    </div>
+                    <div class="col-md-2" style="padding-top: 25px">
+                        <button class="btn btn-info my-4 btn-block reg_btn box_border"
+                            *ngIf="usertype == 'Administrator' || usertype == 'Principal'"
+                            [routerLink]="['../add_notification']" routerLinkActive="router-link-active"><b>+</b> Add
+                            New</button>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div style="padding-left: 35px; padding-right: 35px; margin-top: 40px;">
+              <div *ngFor="let notice of notices">
+
+                <mat-card class="notice-card"   *ngIf="notice.state=='Approved'&& (usertype == 'Student'|| usertype == 'Parents' ||usertype == 'Teacher' )">
+
+                    <p style="display: none" name="notice_id">{{notice._id}}</p>
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>{{notice.subject}}</mat-card-title>
+                      <mat-card-subtitle style="margin-top:-15px">{{notice.date | date:'yyyy-MM-dd HH:mm:ss'}}
+                        </mat-card-subtitle>
+                      </mat-card-header>
+                      <mat-card-content>
+                        <p style="text-align: justify">{{notice.message}}</p>
+                      </mat-card-content>
+
+                      <div class="row">
+                        <div class="col-md-7">
+                          <mat-card-subtitle *ngIf="notice.filepath" style="padding-right: 20px"><a
+                            href="http://localhost:3000/notification/notAttachment/{{notice.filepath}}"><img
+                            src="../../../../assets/icons/paperclip-solid.svg"
+                            class="attachment_icn">&nbsp;&nbsp;Attachment</a>
+                          </mat-card-subtitle>
+                        </div>
+                        <div class="col-md-7">
+                          <mat-card-subtitle *ngIf="usertype == 'Administrator' || usertype == 'Principal'"
+                          style="padding-right: 20px">
+                          state : {{notice.state}}
+                        </mat-card-subtitle>
+                      </div>
+                    </div>
+
+                    <mat-card-actions style="text-align: right">
+
+                      <button *ngIf="notice.state=='Pending' && usertype == 'Principal'" mat-raised-button
+                      color="success" (click)="approve($event, notice._id)">Approve</button>
+
+                      <button *ngIf="usertype == 'Administrator' || usertype == 'Principal'" mat-raised-button
+                      color="warn" style="width:100px;"
+                      (click)="disapprove($event,notice._id,notice.filepath)">Disapprove</button>
+
+                      <!-- <button mat-raised-button class="view_btn"
+                        (click)="view($event, notice._id)">View</button> -->
+
+                      </mat-card-actions>
+
+
+
+                  </mat-card>
+                </div>
+
+
+
+
+            </div>
+
+            <div style="padding-left: 35px; padding-right: 35px; margin-top: 40px;">
+              <div *ngFor="let notice of notices">
+
+                <mat-card class="notice-card"   *ngIf="usertype == 'Principal' || usertype == 'Admin'">
+
+                    <p style="display: none" name="notice_id">{{notice._id}}</p>
+                    <mat-card-header>
+                      <div mat-card-avatar class="example-header-image"></div>
+                      <mat-card-title>{{notice.subject}}</mat-card-title>
+                      <mat-card-subtitle style="margin-top:-15px">{{notice.date | date:'yyyy-MM-dd HH:mm:ss'}}
+                        </mat-card-subtitle>
+                      </mat-card-header>
+                      <mat-card-content>
+                        <p style="text-align: justify">{{notice.message}}</p>
+                      </mat-card-content>
+
+                      <div class="row">
+                        <div class="col-md-7">
+                          <mat-card-subtitle *ngIf="notice.filepath" style="padding-right: 20px"><a
+                            href="http://localhost:3000/notification/notAttachment/{{notice.filepath}}"><img
+                            src="../../../../assets/icons/paperclip-solid.svg"
+                            class="attachment_icn">&nbsp;&nbsp;Attachment</a>
+                          </mat-card-subtitle>
+                        </div>
+                        <div class="col-md-7">
+                          <mat-card-subtitle *ngIf="usertype == 'Administrator' || usertype == 'Principal'"
+                          style="padding-right: 20px">
+                          state : {{notice.state}}
+                        </mat-card-subtitle>
+                      </div>
+                    </div>
+
+                    <mat-card-actions style="text-align: right">
+
+                      <button *ngIf="notice.state=='Pending' && usertype == 'Principal'" mat-raised-button
+                      color="success" (click)="approve($event, notice._id)">Approve</button>
+
+                      <button *ngIf="usertype == 'Administrator' || usertype == 'Principal'" mat-raised-button
+                      color="warn" style="width:100px;"
+                      (click)="disapprove($event,notice._id,notice.filepath)">Disapprove</button>
+
+                      <!-- <button mat-raised-button class="view_btn"
+                        (click)="view($event, notice._id)">View</button> -->
+
+                      </mat-card-actions>
+
+
+
+                  </mat-card>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- <app-news-view></app-news-view> -->

@@ -1,0 +1,168 @@
+<div class="container" >
+    <div class="row" style="padding-top: 100px;" *ngIf="!flag">
+        <mat-card class="mydiv" align="center" >
+            <div class="row" style="margin-left:30px;" align="center">
+                <div class="col">
+                    <p style="color: rgb(165, 165, 165);font-size: 12px;">Choose File</p>
+
+                    
+                    <input type="file" name="file" id="file" style="display: none"
+                        (change)="handleFileInput($event.target.files)" accept="text/*"
+                        [uploader]="uploader" #fileInput>
+                    <button class="btn btn-outline-primary my-4 btn-block box_border pick_btn" type="button"
+                        (click)="fileInput.click()" accept="text/*">Choose File</button>
+                        <small class="form-text text-muted mb-4" style=" text-align: left; margin-top: -18px;" *ngIf="fileToUpload">
+                            {{fileToUpload.name}}
+                        </small>
+                </div>
+               
+            </div>
+            <span style="color: red;">Note:</span>
+            <div class="row" align="center">
+                
+                <div class="col" style="border: 1px solid rgb(0, 140, 255);;height: auto;border-radius: 5px;padding: 20px;">
+                    <p>
+                        <small style="color: red;">
+                            You should follow following format in your Uploading file
+                        </small>
+                    </p>
+                        <img src="../../../../../assets/icons/sample.PNG"  style="margin:auto" >
+
+                    
+        
+                </div>
+               
+            </div>
+            <div class="row" align="center" style="padding-left: 100px;padding-right: 100px;">
+                <button class="btn btn-info my-4 btn-block" type="submit"
+                (click)="bulkRegistration()">Submit
+                Now</button>
+            </div>
+        </mat-card>
+    </div>
+    <div *ngIf="flag">
+ 
+    <div style="height: 50px;"></div>      
+    <div align="center">
+        <div align="right">
+            <button type="button" (click)="addAll()" class="btn btn-primary" style="margin-right:10px">Add All   </button>
+            <button type="button" (click)="removeAll()" class="btn btn-danger">Revoke All</button>
+        </div>
+        <div *ngFor="let user of users;index as i" >
+            <div class="col-6" *ngIf="userVisibale[i]">
+                <mat-card class="example-card" style="padding-top: 30px;">
+                    <mat-card-header>
+                                    <div mat-card-avatar class="example-header-image"><mat-icon>person</mat-icon></div>
+                            <mat-card-title>{{user.name}}    </mat-card-title>
+                            
+                            </mat-card-header>
+                            
+                            <mat-card-content>
+                                
+                                    <div class="row">
+                                            <div class="col">
+                                                UserType:
+                                            </div>
+                                            <div class="col">
+                                                {{user.usertype}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col">
+                                                    Name:
+                                                </div>
+                                                <div class="col">
+                                                    {{user.name}}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col">
+                                                    Email:
+                                                </div>
+                                                <div class="col">
+                                                    {{user.email}}
+                                                </div>
+                                        </div>
+                                        <div class="row">
+                                                <div class="col">
+                                                    UserID:
+                                                </div>
+                                                <div class="col">
+                                                    {{user.userid}}
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col">
+                                                        NIC:
+                                                    </div>
+                                                    <div class="col">
+                                                        {{user.NIC}}
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col">
+                                                        Birthday:
+                                                    </div>
+                                                    <div class="col">
+                                                        {{user.birthday}}
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col">
+                                                        Password:
+                                                    </div>
+                                                    <div class="col">
+                                                        {{user.password}}
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col">
+                                                        Gender
+                                                    </div>
+                                                    <div class="col">
+                                                        {{user.gender}}
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col">
+                                                        Nationality:
+                                                    </div>
+                                                    <div class="col">
+                                                        {{user.nationality}}
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col">
+                                                        address:
+                                                    </div>
+                                                    <div class="col">
+                                                        {{user.address}}
+                                                    </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col">
+                                                        Image:
+                                                    </div>
+                                                    <div class="col">
+                                                        {{user.image}}
+                                                    </div>
+                                            </div>
+                    </mat-card-content>
+                    <mat-card-actions align="right">
+                    <button type="button" (click)="addUser(i)" class="btn btn-primary" style="margin-right:10px">Add User</button>
+                    <button type="button" (click)="remove(i)" class="btn btn-danger">Cancel</button>
+                    </mat-card-actions>
+                </mat-card>
+                <div style="height: 50px;"></div>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+ 
+
+  
+
+

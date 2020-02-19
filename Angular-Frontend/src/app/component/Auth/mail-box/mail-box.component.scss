@@ -1,0 +1,117 @@
+.body {
+  background-color: white;
+  //   height: 900px;
+}
+
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+
+hr {
+  margin-top: -10px;
+}
+
+.mat_card {
+  margin-bottom: 10px;
+  height: 75px;
+}
+.mat_card:hover {
+  cursor: pointer;
+  background-color: rgb(243, 243, 243);
+  transition: 0.5s;
+}
+
+.circle_read {
+  color: #008b23;
+}
+
+.circle_not_read {
+  color: rgb(219, 0, 0);
+}
+
+.name {
+  font-weight: 500;
+  color: rgb(65, 65, 65);
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  clear: both;
+}
+
+.subject {
+  font-size: 13px;
+  overflow: hidden;
+  white-space: nowrap;
+  // clear: both;
+}
+
+.delete_btn {
+  margin-left: 90px;
+  color: rgb(82, 82, 82);
+  cursor: pointer;
+}
+.delete_btn:hover {
+  color: rgb(119, 0, 0);
+}
+
+.person_icn {
+  font-size: 60px;
+  color: rgb(82, 82, 82);
+}
+.view_card{
+    transition-delay: 10s;
+}
+.view_name {
+  font-weight: 500;
+  font-size: 16px;
+  margin-left: -10px;
+  color: rgb(82, 82, 82);
+//   margin-top: 10px;
+}
+
+.view_email {
+  font-weight: 300;
+  font-size: 12px;
+  margin-left: -10px;
+  margin-top: -20px;
+  color: rgb(82, 82, 82);
+}
+
+.view_date {
+  font-weight: 400;
+  font-size: 13px;
+  margin-left: -10px;
+  margin-top: 10px;
+  color: rgb(82, 82, 82);
+  text-align: center;
+}
+.view_rep_btn {
+  margin-top: 10px;
+  font-size: 30px;
+}
+.view_rep_btn:hover {
+  color: rgb(0, 133, 0);
+  cursor: pointer;
+}
+
+.view_subject {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgb(61, 61, 61);
+}
+
+.view_message {
+  font-weight: 400;
+  font-size: 13px;
+  color: rgb(63, 63, 63);
+  text-align: justify;
+}

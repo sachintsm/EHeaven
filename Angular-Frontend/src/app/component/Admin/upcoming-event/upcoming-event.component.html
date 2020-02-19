@@ -1,0 +1,156 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+
+      <div class="container-fluid" style="background-color:#F8F9FA ;">
+        <div class="container" style="padding-top: 50px;">
+
+          <div class="row">
+            <div class="col-md-10">
+          <h2 class="topic">Event Handling</h2>
+        </div>
+
+        <div class="col-md-2">
+          <button class="btn btn-info my-4 btn-block reg_btn box_border" (click)="onAdd($event)"><b>+</b> Add
+            New</button>
+        </div>
+      </div>
+      <hr>
+        <div style="padding-top:50px; padding-bottom: 50px;">
+          <div class="container">
+            <div *ngIf="!editform">
+            <div *ngIf="addnew">
+
+          <!-- form start -->
+          <form class="border text-center p-5 reg-frm" [formGroup]="EventForm" style="background-color: white;">
+
+            <h4 class="topic" style="text-align: center; margin-top: -80px;">New Event Add  </h4>
+            <div class="form-row mb-4">
+              <p style="text-align: left;">Head :</p>
+              <input type="text" class="form-control box_border" name="head" formControlName="head">
+              <div *ngIf="submitted && f.head.errors" class="err_msg">
+                <div *ngIf="f.head.errors.required">Head is required</div>
+                <div *ngIf="f.head.errors.maxlength">Head must be less than 30 characters</div>
+              </div>
+            </div>
+
+
+            <div class="form-row mb-4">
+              <p style="text-align: left;">Event Details :</p>
+              <textarea type="text" class="form-control box_border"  name="eventdetail" formControlName="eventdetail"  id="textbox1"></textarea>
+              <div *ngIf="submitted && f.eventdetail.errors" class="err_msg">
+                <div *ngIf="f.eventdetail.errors.required">Event details is required</div>
+                <div *ngIf="f.eventdetail.errors.maxlength">Event details must be less than 150 characters</div>
+              </div>
+            </div>
+
+            <div class="form-row mb-4">
+              <p style="text-align: left;">Date :</p>
+              <input type="date" class="form-control box_border"  name="day" formControlName="day">
+              <div *ngIf="submitted && f.day.errors" class="err_msg">
+                <div *ngIf="f.day.errors.required">Date is required</div>
+              </div>
+            </div>
+
+            <p>&nbsp;</p>
+
+            <button (click)="addevent(EventForm.value)" type="submit"
+                  class="btn btn-info my-4 btn-block reg_btn box_border upload_btn" upload_btn>Submit</button>
+          </form>
+        </div>
+      </div>
+        </div>
+        </div>
+
+
+
+        <!-- edit form -->
+
+        <div style="margin-top:-60px; padding-bottom: 50px;">
+          <div class="container">
+
+          <div *ngIf="editform">
+
+
+          <form class="border text-center p-5 reg-frm" [formGroup]="EventForm" style="background-color: white;">
+            <h4 class="topic" style="text-align: center; margin-top: -80px;">Event Edit Form </h4>
+
+            <div class="form-row mb-4">
+              <p style="text-align: left;">Head :</p>
+              <input type="text" class="form-control box_border" name="head" formControlName="head" [(ngModel)]="eventEdit.head">
+              <div *ngIf="submitted && f.head.errors" class="err_msg">
+                <div *ngIf="f.head.errors.required">Head is required</div>
+                <div *ngIf="f.head.errors.maxlength">Head must be less than 30 characters</div>
+              </div>
+            </div>
+
+
+            <div class="form-row mb-4">
+              <p style="text-align: left;">Event Details :</p>
+              <textarea type="text" class="form-control box_border"  id="textbox1" name="eventdetail" formControlName="eventdetail" [(ngModel)]="eventEdit.eventdetail"></textarea>
+              <div *ngIf="submitted && f.eventdetail.errors" class="err_msg">
+                <div *ngIf="f.eventdetail.errors.required">Event details is required</div>
+                <div *ngIf="f.eventdetail.errors.maxlength">Event details must be less than 150 characters</div>
+              </div>
+            </div>
+
+            <div class="form-row mb-4">
+              <p style="text-align: left;">Date :</p>
+              <input type="date" class="form-control box_border"  name="day" formControlName="day" [(ngModel)]="eventEdit.day">
+              <div *ngIf="submitted && f.day.errors" class="err_msg">
+                <div *ngIf="f.day.errors.required">Date is required</div>
+              </div>
+            </div>
+
+            <p>&nbsp;</p>
+
+            <button (click)="UpdateEvent(EventForm.value)" type="submit"
+                  class="btn btn-info my-4 btn-block reg_btn box_border upload_btn" upload_btn>Update</button>
+          </form>
+        </div>
+
+        </div>
+        </div>
+
+
+
+        <!-- event detail view -->
+
+        <div style="margin-top:-60px; padding-bottom: 50px;">
+          <div *ngIf="!addnew">
+            <div *ngIf="!editform">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-10" style="margin: auto;">
+                  <mat-card class="event-card" *ngFor="let event of events">
+                  <mat-card-header style="margin-left: -15px;">
+                    <mat-card-title>{{event.head}}</mat-card-title>
+                    <mat-card-subtitle style="margin-top: -15px;">{{event.day | date: 'yyyy-MM-dd'}}</mat-card-subtitle>
+                  </mat-card-header>
+
+                  <mat-card-content>
+                  <p>{{event.eventdetail}}</p>
+                  </mat-card-content>
+
+                  <mat-card-actions style="text-align: right;" >
+                    <button mat-raised-button class="edit_btn" (click)=" onEdit($event , event._id)">Edit</button>
+                    <button mat-raised-button class="delete_btn" (click)="delete($event,event._id)">Delete</button>
+                  </mat-card-actions>
+
+                  </mat-card>
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

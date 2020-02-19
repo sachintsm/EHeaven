@@ -1,0 +1,204 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="container-fluid " style="background-color:#F8F9FA;min-height: 750px">
+
+        <div>
+
+          <!-- top of the form begin -->
+          <div class="container" style="padding-top: 50px">
+
+            <div class="row">
+              <div class="col-md-10">
+
+                <h2 class="topic">Student-Payments</h2>
+              </div>
+
+
+              <div class="col-md-2" style="padding-top: 20px; ">
+
+                <button class="btn btn-info my-4 btn-block reg_btn box_border" (click)="onAdd($event)"><b>+</b> Add
+                  New</button>
+              </div>
+            </div>
+            <hr>
+          </div>
+
+          <!-- form brgin -->
+          <div class="container">
+            <div *ngIf="addnew">
+
+              <form class="border text-center p-5 reg-frm" [formGroup]="PaymentForm" style="background-color: white;">
+                <h4 class="topic" style="text-align: center; margin-top: -80px;">New Payment Add </h4>
+
+                <div class="form-row mb-4">
+                  <p style="text-align: left">Student Name :</p>
+                  <input type="text" class="form-control box_border" name="sName" formControlName="sName">
+                  <div *ngIf="submitted && f.sName.errors" class="err_msg">
+                    <div *ngIf="f.sName.errors.required">Student name is required</div>
+                  </div>
+                </div>
+
+                <div class="form-row mb-4">
+                  <p style="text-align: left">Student Id :</p>
+                  <input type="text" class="form-control box_border" name="sId" formControlName="sId">
+                  <div *ngIf="submitted && f.sId.errors" class="err_msg">
+                    <div *ngIf="f.sId.errors.required">Student Id is required</div>
+                  </div>
+                </div>
+
+                <div class="form-row mb-4">
+                  <p style="text-align: left">Student Class :</p>
+                  <input type="text" class="form-control box_border" name="sClass" placeholder="1A"
+                    formControlName="sClass">
+                  <div *ngIf="submitted && f.sClass.errors" class="err_msg">
+                    <div *ngIf="f.sClass.errors.required">Student Class is required</div>
+                  </div>
+                </div>
+
+                <div class="form-row md-4">
+                  <p style="text-align: left">Select Year:</p>
+                  <mat-select style="text-align: left;" class="browser-default custom-select mb-4 box_border"
+                    [(ngModel)]="pYear" name="pYear" formControlName="pYear">
+                    <mat-option style="text-align:left" *ngFor='let pYear of myYears' [value]='pYear'>
+                      {{pYear}}
+                    </mat-option>
+                    <div *ngIf="submitted && f.pYear.errors" class="err_msg">
+                      <div *ngIf="f.pYear.errors.required">Payment year is requied</div>
+                    </div>
+                  </mat-select>
+                </div>
+
+                <div class=" form-row md-4">
+                  <p style="text-align: left">Payment Type:</p>
+                  <mat-select style="text-align: left;" class="browser-default custom-select mb-4 box_border "
+                    [(ngModel)]="pName" name="pName" formControlName="pName">
+                    <mat-option style="text-align: left" *ngFor='let pName of  paymenttypes' [value]='pName'>
+                      {{pName}}</mat-option>
+                  </mat-select>
+                  <div *ngIf="submitted && f.pName.errors" class="err_msg">
+                    <div *ngIf="f.pName.errors.required">Payment type is requied</div>
+                  </div>
+
+                </div>
+
+
+
+                <div class="form-row mb-4">
+                  <p style="text-align: left">Payment :</p>
+
+                  <input type="number" class="form-control box_border" name="payment" formControlName="payment">
+                  <div *ngIf="submitted && f.payment.errors" class="err_msg">
+                    <div *ngIf="f.payment.errors.required">Payment is required</div>
+                  </div>
+                </div>
+                <p>&nbsp;</p>
+                <button (click)="addPayment(PaymentForm.value)" type="submit"
+                  class="btn btn-info my-4 btn-block reg_btn box_border" upload_btn>Submit</button>
+
+              </form>
+            </div>
+
+          </div>
+
+
+
+
+
+          <!-- view begin -->
+
+
+          <div class="container">
+            <div *ngIf="!addnew">
+              <mat-card>
+
+                <form [formGroup]="PaymentForm" style="margin-top: 20px;">
+                  <div class="container">
+
+                    <h4 class="topic1">Search Paid Students</h4>
+                    <div class="row" style="text-align: center;margin-bottom: 20px;margin-top: 20px;">
+                      <div class="col-md-2 top_txt">
+                        <label style="font-size:15px ;">Year Required :</label>
+                        <mat-select class="browser-default custom-select mb-4 box_border" [(ngModel)]="pYear"
+                          name="pYear" formControlName="pYear">
+
+                          <mat-option style="text-align: left" *ngFor='let pYear of myYears' [value]="pYear">
+                            {{ pYear }}
+                          </mat-option>
+                        </mat-select>
+                      </div>
+
+
+
+                      <div class="col-md-2 top_txt">
+                        <label style="font-size:15px ;">Class Name :</label>
+
+                        <input type="text" class="form-control box_border" formControlName="sClass" name="sClass"
+                          placeholder="1A" matTooltip="Enter in block letters (i.e: 1A)" style="text-align: left">
+                        <div *ngIf="submitted && f.sClass.errors " class="err_msg">
+                          <div *ngIf="f.sClass.errors.required">Payment type is requied</div>
+
+                        </div>
+                      </div>
+
+                      <div class="col-md-6 top_txt">
+                        <label style="font-size:15px ;"> Payment Type Required :</label>
+                        <mat-select class="browser-default custom-select mb-4 box_border" [(ngModel)]="pName"
+                          name="pName" formControlName="pName">
+                          <mat-option style="text-align: left" *ngFor='let pName of paymenttypes' [value]="pName">
+                            {{pName}}</mat-option>
+                        </mat-select>
+                      </div>
+
+
+                      <div class="col-md-2">
+                        <button mat-raised-button class="search_btn" (click)="searchPayment()"><img
+                            src="../../../../assets/icons/searchengin-brands.svg" style="width: 20px">Search</button>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- tbale view for details -->
+
+                  <div class="container" style="margin-bottom: 50px;" *ngIf=tableshow>
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th style="text-align: left;font-weight: 500; color: rgb(71, 71, 71);">Student
+                            ID</th>
+                          <th style="text-align: left;font-weight: 500; color: rgb(71, 71, 71);">Student Name
+                          </th>
+                          <th style="text-align: left;font-weight: 500; color: rgb(71, 71, 71);">Payment
+                            Year</th>
+                          <th style="text-align: left;font-weight: 500; color: rgb(71, 71, 71);">Payment
+                            Type</th>
+                        </tr>
+                      </thead>
+                      <tbody *ngFor="let pdata of paymentdata">
+                        <tr>
+                          <td class="stid">{{pdata.sId}}</td>
+                          <td class="stname">{{pdata.sName}}</td>
+                          <td style="margin: auto;">{{pdata.pYear}}</td>
+                          <td style="margin: auto;">{{pdata.pName}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </form>
+              </mat-card>
+
+            </div>
+          </div>
+
+          <div class="container">
+            <mat-card class="mat_cls">
+              <h4 class="topic1">Payments Notice</h4>
+            </mat-card>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

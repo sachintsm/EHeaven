@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="row">
+           
+            <div class="container-fluid" style="background-color:#F8F9FA">
+                
+                <div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2 class="topic">Manage
+                                    Student Marks / Grades
+                                </h2>
+                            </div>
+                        </div>
+                        <hr>
+                    </div>
+                        <mat-tab-group>
+                            <mat-tab label="Add by Student">
+                                <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px">
+                                    <mat-card class="border text-center p-5 reg-frm" [formGroup]="ClassSearchForm">
+                                        <img src="../../../assets/logo/logo.png" style="width:40%; margin-bottom: 50px">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <p class="top_txt">Class Room Name : </p>
+                                                <input type="text" class="form-control box_border" formControlName="className" placeholder="5A" name="className"  [(ngModel)]="className">
+                                                <div *ngIf="submitted && f.className.errors" class="err_msg">
+                                                    <div *ngIf="f.className.errors.required">Classname is required</div>
+                                                    <div *ngIf="f.className.errors.maxlength">Invalid classname</div>
+                                                    <div *ngIf="f.className.errors.minlength">Invalid classname</div>
+    
+                                                </div>
+                                            </div>
+    
+                                            <!-- {{CertificationForm.value | json}} -->
+                                            <div class="col-md-4">
+                                                <button mat-raised-button class="search_btn" (click)="searchStudents(className)"><img
+                                                        src="../../../../assets/icons/searchengin-brands.svg" style="width: 20px">
+                                                    Search</button>
+                                            </div>
+                                        </div>
+                                    </mat-card>
+                                </div>
+                                <!-- [{{#each userData}}] -->
+    
+                                <div style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px" *ngIf="dataform == true">
+                                    <mat-card class="border text-center p-5 reg-frm" [formGroup]="StudentMarksForm">
+                                        <div class="row" *ngIf="ctName">
+                                            <p style="color: rgb(115, 115, 115)">Class Teacher Name : </p><p> &nbsp;&nbsp;{{ctName.classTeacher}}</p>
+                                        </div>
+                                        <div class="row" style="text-align:left">
+                                            <div class="col-md-6">
+                                                <p class="top_txt">Subject : </p>
+                                                <mat-select class="browser-default custom-select mb-4 box_border" formControlName="subject" [(ngModel)]="subject" name="subject" required>
+                                                    <mat-option style="text-align: left" *ngFor='let subject of mySubject' [value]='subject.subId'>{{subject.subId}} - {{subject.subName}}</mat-option>
+                                                </mat-select>
+                                            
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p class="top_txt">Year : </p>
+                                                <mat-select class="browser-default custom-select mb-4 box_border" formControlName="year" [(ngModel)]="year" name="year" required>
+                                                    <mat-option style="text-align: left" *ngFor='let year of myYear' [value]='year'>{{ year }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <p class="top_txt">Term : </p>
+                                                <mat-select class="browser-default custom-select mb-4 box_border" formControlName="term" [(ngModel)]="term" name="term" required>
+                                                    <mat-option style="text-align: left" *ngFor='let term of myTerm' [value]="term">{{ term+" Term" }}
+                                                    </mat-option>
+                                                </mat-select>
+                                            </div>
+                                        </div>
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th style="text-align: left;font-weight: 500; color: rgb(71, 71, 71);">Student ID</th>
+                                                    <th style="text-align: left;font-weight: 500; color: rgb(71, 71, 71);">Student Name</th>
+                                                    <th style="text-align: left;font-weight: 500; color: rgb(71, 71, 71);">Subject Marks</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody *ngFor = "let stdata of csNames; index as i;">
+                                                <tr>
+                                                    <td class="stid">{{stdata.userid}}</td>
+                                                    <td class="stname">{{stdata.name}}</td>
+                                                    <td style="margin: auto;"><input type="text" class="form-control box_border stmarks" name="{{i}}"  (blur)="setMark(i,$event.target.value)"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div class="row">
+                                            <button mat-raised-button class="search_btn" style="width:30%; margin: auto"  (click)="submitMarks()" [disabled]="StudentMarksForm.valid">
+                                                <img src="../../../../assets/icons/searchengin-brands.svg" style="width: 20px">Submit</button>
+                                        </div>
+                                    </mat-card>
+                                </div>
+                            </mat-tab>
+                            <mat-tab label="Bulk Addition">
+                                <app-mark-bulk-add></app-mark-bulk-add>
+                            </mat-tab>
+                        </mat-tab-group>      
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

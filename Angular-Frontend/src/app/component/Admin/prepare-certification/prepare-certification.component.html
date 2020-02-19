@@ -1,0 +1,802 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="col-md-2">
+              <app-sidebar></app-sidebar>
+          </div> -->
+      <div
+        class="container-fluid"
+        style="background-color:#F8F9FA;min-height: 750px"
+      >
+        <div>
+          <div class="container">
+            <h2 class="topic">Admin - Certification</h2>
+            <hr />
+          </div>
+          <div
+            style="padding-left: 50px; padding-right: 50px; margin-bottom: 50px;"
+          >
+            <mat-tab-group>
+              <!-- ////////////////// PRINCIPAL  CERTIFICATION  //////////////////////////////////////////////////////////////////////// -->
+
+              <mat-tab
+                label="APPROVE CERTIFICATES"
+                *ngIf="userType == 'Principal'"
+              >
+                <mat-card>
+                  <mat-list>
+                    <mat-list-item *ngFor="let cert of pendingCertList1">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <h3 mat-line>User ID : {{ cert.userid }}</h3>
+                      <h3 mat-line>Certificate Type : {{ cert.certType }}</h3>
+                      <!-- <h3>{{cert._id}}</h3> -->
+                      <p mat-line style="color: rgb(117, 117, 117)">
+                        Requested On :
+                        {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn_1"
+                        (click)="acceptCert(cert)"
+                      >
+                        Accept
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn_2"
+                        (click)="rejectCert(cert)"
+                      >
+                        Reject
+                      </button>
+                      <mat-divider></mat-divider>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card>
+              </mat-tab>
+
+              <!-- ////////////////// ADMIN  CERTIFICATION  //////////////////////////////////////////////////////////////////////// -->
+
+              <mat-tab
+                label="REQUESTED CERTIFICATES"
+                *ngIf="userType == 'Administrator'"
+              >
+                <mat-card>
+                  <mat-list>
+                    <mat-list-item *ngFor="let cert of pendingCertList">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <h3 mat-line>User ID : {{ cert.userid }}</h3>
+                      <h3 mat-line>Certificate Type : {{ cert.certType }}</h3>
+                      <!-- <h3>{{cert._id}}</h3> -->
+                      <p mat-line style="color: rgb(117, 117, 117)">
+                        Requested On :
+                        {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                      </p>
+                      <mat-divider></mat-divider>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card>
+              </mat-tab>
+
+              <!-- ////////////////// ADMIN PREPARE CERTIFICATION - FORMS //////////////////////////////////////////////////////////////////////// -->
+
+              <mat-tab
+                label="PREPARE CERTIFICATES"
+                *ngIf="userType == 'Administrator'"
+              >
+                <mat-card>
+                  <mat-accordion>
+                    <!-- ************************************************** Student Status Certificate Form ********************************************* -->
+                    <mat-expansion-panel [formGroup]="StudentStatusForm">
+                      <mat-expansion-panel-header
+                        >Student Status Verification
+                        Certificate</mat-expansion-panel-header
+                      >
+                      <mat-action-row>
+                        <div class="container">
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="studentId"
+                              placeholder="Student ID"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="studentName"
+                              placeholder="Name of the Student"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="admissionNum"
+                              placeholder="Admission Number"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="dateofAdmission"
+                              [matDatepicker]="picker"
+                              placeholder="Date of Admission"
+                            />
+                            <mat-datepicker-toggle
+                              matSuffix
+                              [for]="picker"
+                            ></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="description"
+                              placeholder="Description"
+                            ></textarea>
+                          </mat-form-field>
+
+                          <!-- {{StudentStatusForm.value | json}} -->
+
+                          <button
+                            mat-raised-button
+                            type="submit"
+                            class="btn btn-info my-4 btn-block reg_btn box_border"
+                            (click)="submitStudentstatus()"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </mat-action-row>
+                    </mat-expansion-panel>
+
+                    <!-- ************************************************** Character Certificate Form ********************************************* -->
+                    <mat-expansion-panel [formGroup]="CharacterCertForm">
+                      <mat-expansion-panel-header
+                        >Character Certificate</mat-expansion-panel-header
+                      >
+                      <mat-action-row>
+                        <div class="container">
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="studentId"
+                              placeholder="Student ID"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="studentName"
+                              placeholder="Name of the Student"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="admissionNum"
+                              placeholder="Admission Number"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="lastClass"
+                              placeholder="Last Class of Study"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="lastExam"
+                              placeholder="Last Exam Sat"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="examYear"
+                              placeholder="Examination Year"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              type="date"
+                              formControlName="dateofAdmission"
+                              placeholder="Date of Admission"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              type="date"
+                              formControlName="dateofLeaving"
+                              placeholder="Date of Leaving"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <mat-label>Academic Performance</mat-label>
+                            <mat-select formControlName="academicStatus">
+                              <mat-option
+                                style="text-align: left"
+                                *ngFor="let acaPer of academicPerformance"
+                                [value]="acaPer"
+                              >
+                                {{ acaPer }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <mat-label>Moral Conduct</mat-label>
+                            <mat-select formControlName="moral">
+                              <mat-option
+                                style="text-align: left"
+                                *ngFor="let conduct of moralConduct"
+                                [value]="conduct"
+                              >
+                                {{ conduct }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="leadership"
+                              placeholder="Leadership/Prefectship Details"
+                            ></textarea>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="societies"
+                              placeholder="School based Societies/Activities"
+                            ></textarea>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="sports"
+                              placeholder="Sports"
+                            ></textarea>
+                          </mat-form-field>
+
+                          <!-- {{CharacterCertForm.value | json}} -->
+
+                          <button
+                            mat-raised-button
+                            type="submit"
+                            class="btn btn-info my-4 btn-block reg_btn box_border"
+                            (click)="submitCharacterCert()"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </mat-action-row>
+                    </mat-expansion-panel>
+
+                    <!-- ************************************************** Leaving Certificate Form ********************************************* -->
+                    <mat-expansion-panel [formGroup]="LeavingCertForm">
+                      <mat-expansion-panel-header
+                        >Leaving Certificate</mat-expansion-panel-header
+                      >
+                      <mat-action-row>
+                        <div class="container">
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="studentId"
+                              placeholder="Student ID"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="studentName"
+                              placeholder="Name of the Student in Full"
+                            ></textarea>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              type="date"
+                              formControlName="dateofBirth"
+                              placeholder="Date of Birth"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="fathersName"
+                              placeholder="Name of Father or Guardian in Full"
+                            ></textarea>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="fathersOccupation"
+                              placeholder="Father's or Guardian's Occupation"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="fathersAddress"
+                              placeholder="Father's or Guardian's Permenant Address"
+                            ></textarea>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <mat-label>Religion</mat-label>
+                            <mat-select formControlName="religion">
+                              <mat-option
+                                style="text-align: left"
+                                *ngFor="let rel of religions"
+                                [value]="rel"
+                              >
+                                {{ rel }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="schoolName"
+                              value="St.John's College, Nugegoda"
+                              placeholder="Name of School"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <mat-label>Type of School</mat-label>
+                            <mat-select formControlName="schoolType">
+                              <mat-option
+                                style="text-align: left"
+                                *ngFor="let typ of schooltypes"
+                                [value]="typ"
+                              >
+                                {{ typ }}
+                              </mat-option>
+                            </mat-select>
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="admissionNum"
+                              placeholder="Admission Number"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              type="date"
+                              formControlName="dateofAdmission"
+                              placeholder="Date of Admission"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              type="date"
+                              formControlName="dateofLeaving"
+                              placeholder="Date of Leaving"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="cause"
+                              placeholder="Cause of Leaving"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <input
+                              matInput
+                              formControlName="lastClass"
+                              placeholder="Last Standard the pupil passed"
+                            />
+                          </mat-form-field>
+                          <mat-form-field>
+                            <textarea
+                              matInput
+                              formControlName="subjects"
+                              placeholder="Subjects studied in the Last Class"
+                            ></textarea>
+                          </mat-form-field>
+
+                          <!-- {{LeavingCertForm.value | json}} -->
+
+                          <button
+                            mat-raised-button
+                            type="submit"
+                            class="btn btn-info my-4 btn-block reg_btn box_border"
+                            (click)="submitLeavingCert()"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </mat-action-row>
+                    </mat-expansion-panel>
+
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header
+                        >Academic Certificates</mat-expansion-panel-header
+                      >
+
+                      <!-- ************************************************** A/L Certificate Form ********************************************* -->
+
+                      <mat-expansion-panel [formGroup]="AlCertForm">
+                        <mat-expansion-panel-header
+                          >G.C.E. (A/L) Certificate
+                        </mat-expansion-panel-header>
+                        <mat-action-row>
+                          <div class="container">
+                            <div
+                              class="form-header"
+                              formGroupName="certDetails"
+                            >
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  formControlName="studentId"
+                                  placeholder="Student ID"
+                                />
+                              </mat-form-field>
+                              <mat-form-field>
+                                <textarea
+                                  matInput
+                                  formControlName="studentName"
+                                  placeholder="Name of the Student"
+                                ></textarea>
+                              </mat-form-field>
+                              <mat-form-field>
+                                <mat-label>Examination Year</mat-label>
+                                <mat-select formControlName="examYear">
+                                  <mat-option
+                                    style="text-align: left"
+                                    *ngFor="let year of yearofExam"
+                                    [value]="year"
+                                  >
+                                    {{ year }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  formControlName="centerNo"
+                                  placeholder="Center Number"
+                                />
+                              </mat-form-field>
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  formControlName="indexNo"
+                                  placeholder="Index Number"
+                                />
+                              </mat-form-field>
+                              <mat-form-field>
+                                <mat-label>Medium</mat-label>
+                                <mat-select formControlName="medium">
+                                  <mat-option
+                                    style="text-align: left"
+                                    *ngFor="let med of mediums"
+                                    [value]="med"
+                                  >
+                                    {{ med }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                            </div>
+                            <div formArrayName="subjects">
+                              <button
+                                mat-raised-button
+                                type="button"
+                                class="btn btn-dark btn-sm"
+                                (click)="addSubject()"
+                              >
+                                Add Subject
+                              </button>
+                              <div
+                                class="subjects"
+                                *ngFor="
+                                  let team of AlCertForm.get('subjects')
+                                    .controls;
+                                  let teamIndex = index
+                                "
+                                [formGroupName]="teamIndex"
+                              >
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Subject</mat-label>
+                                  <mat-select formControlName="subjectName">
+                                    <mat-option
+                                      style="text-align: left"
+                                      *ngFor="let sub of subjectnamesAl"
+                                      [value]="sub.subName"
+                                    >
+                                      {{ sub.subName }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                                <mat-form-field>
+                                  <mat-label>Grade</mat-label>
+                                  <mat-select formControlName="grade">
+                                    <mat-option
+                                      style="text-align: left"
+                                      *ngFor="let grd of grades"
+                                      [value]="grd"
+                                    >
+                                      {{ grd }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <mat-form-field>
+                              <input
+                                matInput
+                                formControlName="zscore"
+                                placeholder="Average Z Score"
+                              />
+                            </mat-form-field>
+                            <mat-form-field>
+                              <input
+                                matInput
+                                formControlName="districtrank"
+                                placeholder="District Rank"
+                              />
+                            </mat-form-field>
+                            <mat-form-field>
+                              <input
+                                matInput
+                                formControlName="islandrank"
+                                placeholder="Island Rank"
+                              />
+                            </mat-form-field>
+                            <button
+                              mat-raised-button
+                              type="submit"
+                              class="btn btn-info my-4 btn-block reg_btn box_border"
+                              (click)="submitAlCert()"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </mat-action-row>
+                        <!-- {{AlCertForm.value | json}} -->
+                      </mat-expansion-panel>
+
+                      <!-- ************************************************** O/L Certificate Form ********************************************* -->
+
+                      <mat-expansion-panel [formGroup]="OlCertForm">
+                        <mat-expansion-panel-header
+                          >G.C.E. (O/L) Certificate
+                        </mat-expansion-panel-header>
+                        <mat-action-row>
+                          <div class="container">
+                            <div
+                              class="form-header"
+                              formGroupName="certDetails"
+                            >
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  formControlName="studentId"
+                                  placeholder="Student ID"
+                                />
+                              </mat-form-field>
+                              <mat-form-field>
+                                <textarea
+                                  matInput
+                                  formControlName="studentName"
+                                  placeholder="Name of the Student"
+                                ></textarea>
+                              </mat-form-field>
+                              <mat-form-field>
+                                <mat-label>Examination Year</mat-label>
+                                <mat-select formControlName="examYear">
+                                  <mat-option
+                                    style="text-align: left"
+                                    *ngFor="let year of yearofExam"
+                                    [value]="year"
+                                  >
+                                    {{ year }}
+                                  </mat-option>
+                                </mat-select>
+                              </mat-form-field>
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  formControlName="centerNo"
+                                  placeholder="Center Number"
+                                />
+                              </mat-form-field>
+                              <mat-form-field>
+                                <input
+                                  matInput
+                                  formControlName="indexNo"
+                                  placeholder="Index Number"
+                                />
+                              </mat-form-field>
+                            </div>
+                            <div formArrayName="subjectsOl">
+                              <button
+                                mat-raised-button
+                                type="button"
+                                class="btn btn-dark btn-sm"
+                                (click)="addSubjectOl()"
+                              >
+                                Add Subject
+                              </button>
+                              <div
+                                class="subjects"
+                                *ngFor="
+                                  let team of OlCertForm.get('subjectsOl')
+                                    .controls;
+                                  let teamIndex = index
+                                "
+                                [formGroupName]="teamIndex"
+                              >
+                                <mat-form-field appearance="outline">
+                                  <mat-label>Subject</mat-label>
+                                  <mat-select formControlName="subjectName">
+                                    <mat-option
+                                      style="text-align: left"
+                                      *ngFor="let sub of subjectnamesOl"
+                                      [value]="sub.subName"
+                                    >
+                                      {{ sub.subName }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                                <mat-form-field>
+                                  <mat-label>Medium</mat-label>
+                                  <mat-select formControlName="medium">
+                                    <mat-option
+                                      style="text-align: left"
+                                      *ngFor="let med of mediums"
+                                      [value]="med"
+                                    >
+                                      {{ med }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                                <mat-form-field>
+                                  <mat-label>Grade</mat-label>
+                                  <mat-select formControlName="grade">
+                                    <mat-option
+                                      style="text-align: left"
+                                      *ngFor="let grd of grades"
+                                      [value]="grd"
+                                    >
+                                      {{ grd }}
+                                    </mat-option>
+                                  </mat-select>
+                                </mat-form-field>
+                              </div>
+                            </div>
+                            <button
+                              mat-raised-button
+                              type="submit"
+                              class="btn btn-info my-4 btn-block reg_btn box_border"
+                              (click)="submitOlCert()"
+                            >
+                              Submit
+                            </button>
+                          </div>
+                        </mat-action-row>
+                        <!-- {{OlCertForm.value | json}} -->
+                      </mat-expansion-panel>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </mat-card>
+              </mat-tab>
+
+              <!-- ////////////////// ADMIN PREPARE CERTIFICATION - VIEW CERTIFICATION HISTORY //////////////////////////////////////////////////////////////////////// -->
+              <mat-tab label="CERTIFICATION HISTORY">
+                <mat-card>
+                  <mat-accordion>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header
+                        >Student Status Verification</mat-expansion-panel-header
+                      >
+                      <mat-card>
+                        <mat-list>
+                          <mat-list-item
+                            *ngFor="let cert of completedCertList1"
+                          >
+                            <mat-icon mat-list-icon>note</mat-icon>
+                            <h3 mat-line>User ID : {{ cert.userid }}</h3>
+                            <h3 mat-line>
+                              Certificate Type : {{ cert.certType }}
+                            </h3>
+                            <!-- <h3>{{cert._id}}</h3> -->
+                            <p mat-line style="color: rgb(117, 117, 117)">
+                              Requested On :
+                              {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                            </p>
+                            <mat-divider></mat-divider>
+                          </mat-list-item>
+                        </mat-list>
+                      </mat-card>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header
+                        >Character Certificate</mat-expansion-panel-header
+                      >
+                      <mat-card>
+                        <mat-list>
+                          <mat-list-item
+                            *ngFor="let cert of completedCertList2"
+                          >
+                            <mat-icon mat-list-icon>note</mat-icon>
+                            <h3 mat-line>User ID : {{ cert.userid }}</h3>
+                            <h3 mat-line>
+                              Certificate Type : {{ cert.certType }}
+                            </h3>
+                            <!-- <h3>{{cert._id}}</h3> -->
+                            <p mat-line style="color: rgb(117, 117, 117)">
+                              Requested On :
+                              {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                            </p>
+                            <mat-divider></mat-divider>
+                          </mat-list-item>
+                        </mat-list>
+                      </mat-card>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header
+                        >Leaving Certificate</mat-expansion-panel-header
+                      >
+                      <mat-card>
+                        <mat-list>
+                          <mat-list-item
+                            *ngFor="let cert of completedCertList3"
+                          >
+                            <mat-icon mat-list-icon>note</mat-icon>
+                            <h3 mat-line>User ID : {{ cert.userid }}</h3>
+                            <h3 mat-line>
+                              Certificate Type : {{ cert.certType }}
+                            </h3>
+                            <!-- <h3>{{cert._id}}</h3> -->
+                            <p mat-line style="color: rgb(117, 117, 117)">
+                              Requested On :
+                              {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                            </p>
+                            <mat-divider></mat-divider>
+                          </mat-list-item>
+                        </mat-list>
+                      </mat-card>
+                    </mat-expansion-panel>
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header
+                        >Academic Certificates</mat-expansion-panel-header
+                      >
+
+                      <mat-card>
+                        <mat-list>
+                          <mat-list-item
+                            *ngFor="let cert of completedCertList4"
+                          >
+                            <mat-icon mat-list-icon>note</mat-icon>
+                            <h3 mat-line>User ID : {{ cert.userid }}</h3>
+                            <h3 mat-line>
+                              Certificate Type : {{ cert.certType }}
+                            </h3>
+                            <!-- <h3>{{cert._id}}</h3> -->
+                            <p mat-line style="color: rgb(117, 117, 117)">
+                              Requested On :
+                              {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                            </p>
+                            <mat-divider></mat-divider>
+                          </mat-list-item>
+                        </mat-list>
+                      </mat-card>
+                    </mat-expansion-panel>
+                  </mat-accordion>
+                </mat-card>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

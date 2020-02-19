@@ -1,0 +1,35 @@
+.add_btn {
+  color: white;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  box-shadow: 0px 3px 3px rgb(134, 132, 245);
+  margin-top: 27px;
+  width: 100%;
+}
+.search_btn:hover {
+  background-color: rgb(0, 100, 182);
+}
+
+.top_txt {
+  font-size: 10px;
+  color: rgb(155, 155, 155);
+}
+.border {
+  border-radius: 3px;
+}
+
+.box_border {
+  border-radius: 3px;
+}
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}

@@ -1,0 +1,170 @@
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic{
+    color:  rgb(0, 140, 255); 
+    font-weight: 300; 
+    padding-top: 50px;
+    font-family: topic_font;
+    font-weight: 300;
+}
+
+.search_btn {
+  color: white;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+  margin-top: 23px;
+  width: 100%;
+}
+.search_btn:hover {
+  background-color: rgb(0, 89, 162);
+}
+
+.top_txt {
+  font-size: 10px;
+  color: rgb(155, 155, 155);
+  text-align: left;
+  margin: auto;
+}
+.border {
+  border-radius: 4px;
+}
+
+.logo{
+  width: 35%;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+/***************************graph view*********************************/
+
+.chart-wrapper{
+  width: 95%;
+  text-align: center;
+  margin: auto;
+}
+/***************************student view boxes*********************************/
+.box1{
+  height: 150px;
+  margin:  10px;
+  border-radius: 5px;
+  background-color: #0d47a1;
+}
+.box2{
+  height: 150px;
+  margin:  10px;
+  border-radius: 5px;
+  background-color:#d81b60;
+}
+.box3{
+  height: 150px;
+  margin:  10px;
+  border-radius: 5px;
+  background-color: #388e3c;
+}
+.box4{
+  height: 150px;
+  margin:  10px;
+  border-radius: 5px;
+  background-color: #ffab00;
+}
+
+.box1:hover{
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #1465dd;
+}
+.box2:hover{
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #f74b8a;
+}
+
+.box3:hover{
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #46b84c;
+}
+
+.box4:hover{
+  transition: 0.2s;
+  cursor: pointer;
+  background-color: #ffc34b;
+}
+
+
+.box_smtext{
+  color: white;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+
+.box_bigtext{
+  font-family: sans-serif;
+  color: white;
+  margin: auto;
+  font-size: 2.5em;
+}
+
+/***************************teacher view*********************************/
+.box_border{
+  border-radius: 3px;
+}
+.stname {
+  text-align: left;
+}
+.stid {
+  padding-left: 20px;
+  text-align: left;
+}
+.stmarks {
+  text-align: center;
+  width: 100px;
+}
+
+/**********************subject list***************************************/
+.table{
+  width: 94%;
+  margin: auto;
+}
+
+.tableheader{
+  background-color: rgb(0, 119, 255);
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  height: 50px;
+}
+.tablebody{
+  background-color: #fff;
+  height: 40px;
+  border: 0.5px rgb(235, 235, 235) solid;
+}
+.theaderContent{
+  margin: auto;
+  color: white;
+  font-weight: 500px;
+}
+.tbodyContent{
+  margin: auto;
+}
+.tablebody:hover{
+  background-color: rgb(243, 243, 243);
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+/********************/
+.teacherStuData{
+  // margin: auto;
+  text-align: center;
+  margin-top: -20px;
+  color: rgb(255, 255, 255);
+  font-size: 25px;
+  font-weight: 500;
+}
+.teacherStuDataSub{
+  font-size: 10px;
+  color: rgb(255, 255, 255);
+}

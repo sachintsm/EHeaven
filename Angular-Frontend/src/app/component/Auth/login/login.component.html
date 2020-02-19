@@ -1,0 +1,63 @@
+<div class="row">
+    <div class="container-fluid">
+        <app-navbar2></app-navbar2>
+        <div class="row">
+            <div class="container-fluid bg-grd">
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p class="ehaeaven">EHeaven</p>
+                            <p class="subEheaven">Student Management &</p>
+                            <p class="subEheaven">Learning Platform</p>
+                            
+                            <p class="quotesTop">“Education is the passport to the future, for tomorrow belongs to those who prepare for it today.”</p>
+                            <p class="quotesSub">- Malcolm X</p>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group" style="padding-top: 50px;">
+                                <form class="text-center border border p-5  login-frm">
+
+                                    <img src="../../../assets/logo/logo.png" style="width:60%; margin-bottom: 30px">
+
+                                    <p>
+                                        <mat-form-field appearance="standard" style="width:100%">
+                                            <mat-label>User ID</mat-label>
+                                            <input matInput name="userid" [(ngModel)]="userid"
+                                                placeholder=" i.e : 17001112">
+                                            <mat-icon matSuffix>person</mat-icon>
+                                            <!-- <mat-hint>Hint</mat-hint> -->
+                                        </mat-form-field>
+                                    </p>
+                                    <div *ngIf="submitted && f.name.errors" class="err_msg">
+                                        <div *ngIf="f.name.errors.required">UserId is required</div>
+                                    </div>
+
+                                    <p class="fieldtxt">
+                                        <mat-form-field appearance="standard" style="width:100%;margin-top: -20px;">
+                                            <mat-label>Password</mat-label>
+                                            <input matInput type="password" name="password" [(ngModel)]="password"
+                                                placeholder="i.e : abc@123">
+                                            <mat-icon matSuffix>lock</mat-icon>
+                                            <!-- <mat-hint>Hint</mat-hint> -->
+                                        </mat-form-field>
+                                    </p>
+                                    <div *ngIf="submitted && f.name.errors" class="err_msg">
+                                        <div *ngIf="f.name.errors.required">Password is required</div>
+                                    </div>
+
+                                    <button mat-button class="btn btn-info btn-block login_btn box_border" type="submit"
+                                        (click)="userLogin()">Sign in</button>
+                                    <p style="padding-top: 20px">Not a Member? <a routerLink="/">Contact_Admin</a> </p>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

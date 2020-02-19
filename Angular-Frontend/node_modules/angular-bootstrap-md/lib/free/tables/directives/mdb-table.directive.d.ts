@@ -1,0 +1,33 @@
+import { AfterViewInit, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import { Observable } from 'rxjs';
+export declare class MdbTableDirective implements OnInit, AfterViewInit {
+    private el;
+    private renderer;
+    striped: boolean;
+    bordered: boolean;
+    borderless: boolean;
+    hover: boolean;
+    small: boolean;
+    responsive: boolean;
+    stickyHeader: boolean;
+    stickyHeaderBgColor: string;
+    stickyHeaderTextColor: string;
+    constructor(el: ElementRef, renderer: Renderer2);
+    private _dataSource;
+    private _dataSourceChanged;
+    addRow(newRow: any): void;
+    addRowAfter(index: number, row: any): void;
+    removeRow(index: number): void;
+    rowRemoved(): Observable<boolean>;
+    removeLastRow(): void;
+    getDataSource(): any;
+    setDataSource(data: any): void;
+    dataSourceChange(): Observable<any>;
+    filterLocalDataBy(searchKey: any): any;
+    filterLocalDataByFields(searchKey: any, keys: string[]): any;
+    searchLocalDataBy(searchKey: any): any;
+    searchLocalDataByFields(searchKey: any, keys: string[]): any;
+    searchDataObservable(searchKey: any): Observable<any>;
+    ngOnInit(): void;
+    ngAfterViewInit(): void;
+}

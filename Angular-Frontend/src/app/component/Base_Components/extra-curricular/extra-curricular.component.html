@@ -1,0 +1,194 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="col-md-2">
+                <app-sidebar></app-sidebar>
+              </div> -->
+      <div class="container-fluid" style="background-color:#F8F9FA">
+        <div>
+          <div class="container" style="padding-top: 50px">
+            <h2 class="topic">Student - Extra-Curricular Activities</h2>
+          </div>
+          <div
+            style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px"
+          >
+            <mat-tab-group>
+              <mat-tab label="ADD ACHIEVEMENT">
+                <br />
+                <mat-card
+                  class="border text-center p-5 reg-frm"
+                  [formGroup]="extracurrForm"
+                >
+                  <img
+                    src="../../../assets/logo/logo.png"
+                    style="width:50%; margin-bottom: 50px"
+                  />
+
+                  <div class="form-row mb-4">
+                    <label>Category :</label>
+                    <mat-select
+                      #t
+                      class="browser-default custom-select mb-4 box_border"
+                      formControlName="extracurrCat"
+                      (selectionChange)="togglefunction(t.value)"
+                    >
+                      <mat-option
+                        style="text-align: left"
+                        *ngFor="let cat of category"
+                        [value]="cat"
+                        >{{ cat }}
+                      </mat-option>
+                    </mat-select>
+                    <!-- {{t.value}} -->
+                  </div>
+                  <div class="form-row mb-4">
+                    <mat-form-field>
+                      <input
+                        matInput
+                        formControlName="dateofMembership"
+                        [matDatepicker]="picker"
+                        placeholder="Date of Membership"
+                      />
+                      <mat-datepicker-toggle
+                        matSuffix
+                        [for]="picker"
+                      ></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                    </mat-form-field>
+                  </div>
+                  <div *ngIf="flag" formGroupName="sportclubs">
+                    <div class="form-row mb-4">
+                      <label>Sport/Club/Association :</label>
+                      <mat-select
+                        class="browser-default custom-select mb-4 box_border"
+                        formControlName="extracurrname"
+                      >
+                        <mat-option
+                          style="text-align: left"
+                          *ngFor="let extras of extras"
+                          [value]="extras"
+                          >{{ extras }}
+                        </mat-option>
+                      </mat-select>
+                    </div>
+                    <div class="form-row mb-4">
+                      <label>Type of Achievement :</label>
+                      <mat-select
+                        class="browser-default custom-select mb-4 box_border"
+                        formControlName="type"
+                      >
+                        <mat-option
+                          style="text-align: left"
+                          *ngFor="let type of type"
+                          [value]="type"
+                          >{{ type }}
+                        </mat-option>
+                      </mat-select>
+                    </div>
+                    <div class="form-row mb-4">
+                      <label>Name of the Competition :</label>
+                      <input
+                        formControlName="compName"
+                        type="text"
+                        class="form-control box_border"
+                      />
+                    </div>
+                    <div class="form-row mb-4">
+                      <mat-form-field>
+                        <input
+                          matInput
+                          formControlName="dateofAchv"
+                          [matDatepicker]="picker"
+                          placeholder="Date"
+                        />
+                        <mat-datepicker-toggle
+                          matSuffix
+                          [for]="picker"
+                        ></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                    </div>
+                    <div class="form-row mb-4">
+                      <label>Achievement :</label>
+                      <input
+                        formControlName="achv"
+                        type="text"
+                        class="form-control box_border"
+                      />
+                    </div>
+                  </div>
+                  <div class="form-row mb-4">
+                    <label>Description :</label>
+                    <input
+                      formControlName="desp"
+                      type="text"
+                      class="form-control box_border"
+                    />
+                    <small class="text"
+                      >Insert a summary regarding your
+                      Achievement/Membership.</small
+                    >
+                  </div>
+                  <div class="form-row mb-4">
+                    <label>Verified Certificate/Document</label>
+                    <input
+                      type="file"
+                      class="file_upload"
+                      style="display: none"
+                      name="certpic"
+                      accept="image/*"
+                      [uploader]="uploader"
+                      (change)="selectImage($event)"
+                      #fileInput
+                    />
+
+                    <button
+                      class="btn btn_1 "
+                      type="button"
+                      (click)="fileInput.click()"
+                      accept="image/*"
+                    >
+                      Upload Image
+                    </button>
+                  </div>
+
+                  <!-- {{extracurrForm.value | json}} -->
+                  <button
+                    mat-raised-button
+                    type="submit"
+                    class="btn btn-info my-4 btn-block reg_btn box_border"
+                    (click)="submitToApproval()"
+                  >
+                    Submit for Approval
+                  </button>
+                </mat-card>
+              </mat-tab>
+
+              <!-- /*****************************************************************************************************************************/ -->
+              <mat-tab label="PENDING APPROVAL">
+                <mat-card>
+                  <mat-list>
+                    <mat-list-item *ngFor="let curr of pendingExtra">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <h3 mat-line>{{ curr.extracurrCat }}</h3>
+                      <h3 mat-line>{{ curr.extracurrname }}</h3>
+                      <h3 mat-line>{{ curr.achv }}</h3>
+
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card>
+              </mat-tab>
+
+              <!-- /*****************************************************************************************************************************/ -->
+              <mat-tab label="CURRENT ACHIEVEMENTS">
+                <br />
+                <mat-card class="border text-center p-5 reg-frm" [formGroup]="">
+                </mat-card>
+              </mat-tab>
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

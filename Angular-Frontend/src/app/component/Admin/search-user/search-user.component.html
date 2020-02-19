@@ -1,0 +1,267 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="container-fluid" style="background-color:#F8F9FA; min-height: 750px;">
+
+                <div>
+                    <div class="container">
+                        <h2 class="topic">Search User</h2>
+                        <hr>
+                    </div>
+                    <div class="container" style="padding-top:50px ; padding-bottom:50px">
+                        <form class="text-center border p-5 reg-frm" [formGroup]="UserForm"
+                            style="background-color: white;">
+                            <img src="../../../assets/logo/logo.png" style="width:60%; margin-bottom: 50px">
+
+                            <div class="row">
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control box_border" placeholder="User ID : S000001"
+                                        name="userid" formControlName="userid">
+                                </div>
+                                <div class="col-md-3">
+                                    <button class="btn src_btn box_border" type="submit" (click)="searchUser()">
+                                        <p style="margin-left: -20px;">Search &nbsp; <i
+                                                class="material-icons src_icon">search</i></p>
+                                    </button>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- load data form with respect to mentioned userid -->
+
+                    <div class="container" *ngIf="dataform == true">
+                        <div style="padding-bottom: 50px">
+                            <form class="text-center border p-5 reg-frm" [formGroup]="UserDataForm"
+                                style="background-color: white;">
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <select class="browser-default custom-select mb-4 box_border" name="usertype"
+                                            formControlName="usertype"
+                                            [ngClass]="{ 'is-invalid': submitted && f.usertype.errors }"
+                                            [(ngModel)]="userdata.usertype">
+                                            <option value="" disabled>User type</option>
+                                            <option value="Student">Student</option>
+                                            <option value="Parent">Parent</option>
+                                            <option value="Teacher">Teacher</option>
+                                            <option value="Principal">Principal</option>
+                                            <option value="Administrator">Administrator</option>
+                                        </select>
+                                        <small class="form-text text-muted mb-4"
+                                            style="margin-top:-20px; text-align: left">Usertype *</small>
+                                    </div>
+
+                                    <div class="col">
+                                        <input type="text" class="form-control box_border" placeholder="User ID *"
+                                            name="userid" formControlName="userid"
+                                            [ngClass]="{ 'is-invalid': submitted && f.userid.errors }"
+                                            [(ngModel)]="userdata.userid">
+                                        <small class="form-text text-muted mb-4" style=" text-align: left">User ID
+                                            *</small>
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control box_border" placeholder="Selected Class"
+                                            name="selectclass" formControlName="selectclass"
+                                            [(ngModel)]="userdata.selectclass">
+                                        <small class="form-text text-muted mb-4" style=" text-align: left">Selected
+                                            Class</small>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="text" class="form-control box_border" placeholder="Full name"
+                                        name="name" formControlName="name" style="margin-top:-30px"
+                                        [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+                                        [(ngModel)]="userdata.name">
+                                    <small class="form-text text-muted mb-4" style=" text-align: left">Full Name</small>
+                                    <div *ngIf="submitted && f.name.errors" class="err_msg">
+                                        <div *ngIf="f.name.errors.required">Name is required</div>
+                                        <div *ngIf="f.name.errors.maxlength">Name must less than 60 characters</div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <input type="email" class="form-control box_border" placeholder="E-mail"
+                                        name="email" formControlName="email"
+                                        [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                                        [(ngModel)]="userdata.email">
+                                    <small class="form-text text-muted mb-4" style=" text-align: left">Email</small>
+                                    <div *ngIf="submitted && f.email.errors" class="err_msg">
+                                        <div *ngIf="f.email.errors.required">Email is required</div>
+                                        <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <input type="date" class="form-control box_border" placeholder="Date of birth"
+                                            name="birthday" formControlName="birthday"
+                                            [ngClass]="{ 'is-invalid': submitted && f.birthday.errors }"
+                                            [(ngModel)]="userdata.birthday">
+                                        <small class="form-text text-muted mb-4"
+                                            style="margin-top:0px; text-align: left">Birthday *</small>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" class="form-control box_border" placeholder="Home Number"
+                                            name="homenumber" formControlName="homenumber"
+                                            [(ngModel)]="userdata.homenumber">
+                                        <small class="form-text text-muted mb-4" style=" text-align: left">Home
+                                            Number</small>
+                                    </div>
+                                    <div class="col">
+                                        <input type="number" class="form-control box_border" placeholder="Mobile Number"
+                                            name="mobilenumber" formControlName="mobilenumber"
+                                            [(ngModel)]="userdata.mobilenumber">
+                                        <small class="form-text text-muted mb-4" style=" text-align: left">Mobile
+                                            Number</small>
+                                    </div>
+                                </div>
+
+                                <div class="form-row mb-4" style="margin-top: -30px">
+                                    <div class="col ">
+                                        <select class="browser-default custom-select mb-4 box_border" name="gender"
+                                            formControlName="gender"
+                                            [ngClass]="{ 'is-invalid': submitted && f.gender.errors }"
+                                            [(ngModel)]="userdata.gender">
+                                            <option value="" disabled>Gender</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+                                        <small class="form-text text-muted mb-4"
+                                            style="margin-top:-20px; text-align: left">Gender *</small>
+
+                                    </div>
+                                    <div class="col ">
+                                        <select class="browser-default custom-select mb-4 box_border" name="nationality"
+                                            formControlName="nationality"
+                                            [ngClass]="{ 'is-invalid': submitted && f.nationality.errors }"
+                                            [(ngModel)]="userdata.nationality">
+                                            <option value="" disabled>Race</option>
+                                            <option value="Sinhala">Sinhala</option>
+                                            <option value="Tamil">Tamil</option>
+                                            <option value="Muslim">Muslim</option>
+                                            <option value="Cristian">Cristian</option>
+                                        </select>
+                                        <small class="form-text text-muted mb-4"
+                                            style="margin-top:-20px; text-align: left">Race *</small>
+
+                                    </div>
+                                    <div class="col">
+                                        <input type="text" class="form-control box_border" placeholder="NIC Number"
+                                            name="nicnumber" formControlName="nicnumber"
+                                            [(ngModel)]="userdata.nicnumber">
+                                        <small class="form-text text-muted mb-4" style=" text-align: left">NIC
+                                            Number</small>
+                                    </div>
+                                </div>
+
+                                <textarea style="margin-top: -30px; margin-bottom: 30px;" type="text"
+                                    class="form-control box_border" placeholder="Address *" name="address"
+                                    formControlName="address" [(ngModel)]="userdata.address"></textarea>
+                                <small class="form-text text-muted mb-4"
+                                    style="margin-top: -20px; text-align: left">Address</small>
+
+                                <input *ngIf="usertype == 'Student'" style="margin-bottom: 30px;" type="text"
+                                    class="form-control box_border" placeholder="Father Name" name="father"
+                                    formControlName="father" [(ngModel)]="userdata.father">
+                                <small *ngIf="usertype == 'Student'" class="form-text text-muted mb-4"
+                                    style=" text-align: left">Father Name</small>
+                                <input *ngIf="usertype == 'Student'" type="text" class="form-control box_border"
+                                    placeholder="Mother Name" name="mother" formControlName="mother"
+                                    [(ngModel)]="userdata.mother">
+                                <small *ngIf="usertype == 'Student'" class="form-text text-muted mb-4"
+                                    style=" text-align: left">Mother Name</small>
+
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <button class="btn btn-info my-4 btn-block del_btn box_border" type="submit"
+                                            (click)="deleteUser()">Delete User</button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-info my-4 btn-block reg_btn box_border" type="submit"
+                                            (click)="updateUser()">Update User</button>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <button class="btn btn-info my-4 btn-block reg_btn box_border" type="submit"
+                                            (click)="resetPassword()">Reset Password</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- profile picture updating div -->
+                    <div class="container" *ngIf="dataform == true">
+                        <div style="padding-bottom: 50px">
+                            <form class="text-center border p-5 reg-frm" [formGroup]="UserDataForm"
+                                style="background-color: white;">
+                                <input type="file" class="file_upload" style="display: none" name="profilepic"
+                                    accept="image/*" [uploader]="uploader" (change)="selectImage($event)" #fileInput>
+
+
+                                <div class="row">
+                                    <div class="col-md-4 profile-pic">
+                                        <mat-card *ngIf="userdata.filepath"><img
+                                                src="http://localhost:3000/users/profileImage/{{userdata.filepath}}"
+                                                class="profile_matcard">
+                                        </mat-card>
+                                        <!-- <p>{{userdata.filepath}}</p> -->
+                                    </div>
+                                    <div class="col-md-8" style="padding-top: 50px;">
+
+                                        <button class="btn btn-outline-primary my-4 btn-block box_border pick_btn"
+                                            type="button" (click)="fileInput.click()" accept="image/*">Select
+                                            Picture</button>
+                                        <small class="form-text text-muted mb-4"
+                                            style=" text-align: left; margin-top: -18px;">*Image file name should be followig format (userid.jpg)
+                                        </small>
+                                        <small class="form-text text-muted mb-4"
+                                            style=" text-align: left; margin-top: -18px;">
+                                            {{filename}}
+                                        </small>
+                                    </div>
+                                </div>
+                                <button class="btn btn-info my-4 btn-block reg_btn box_border" type="submit"
+                                    (click)="updatePhoto()">Update Profile Picture</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- password reset div -->
+            <div class="container-fluid" style="background-color:#F8F9FA" *ngIf="resetPasswordDiv == true">
+                <div>
+                    <div class="container" style=" padding-bottom:50px">
+                        <form style="background-color: White;" class="text-center border p-5 reg-frm"
+                            [formGroup]="ResetPasswordForm">
+
+                            <div class="row">
+                                <p class="passwordTag">New Password *</p>
+                                <input type="password" class="form-control box_border" placeholder="***************"
+                                    name="userid" formControlName="newpw" style="margin-top: -10px;">
+
+                            </div>
+                            <div class="row" style="margin-top: 20px;">
+                                <p class="passwordTag">Re-enter your New Password *</p>
+                                <input type="password" class="form-control box_border" placeholder="***************"
+                                    name="userid" formControlName="renewpw" style="margin-top: -10px;">
+
+                            </div>
+                            <div style="margin: auto;">
+                                <button class="btn reset_btn box_border" style="margin-top: 20px;" type="submit"
+                                    (click)="resetPasswordbtn()">
+                                    <p style="color: white;">Reset Password</p>
+                                </button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

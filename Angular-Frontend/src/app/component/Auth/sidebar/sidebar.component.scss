@@ -1,0 +1,58 @@
+.side-bar {
+  // margin-left: -30px;
+  width: 100%;
+  // background-color: #263238;
+}
+@font-face{
+  font-family: side_font;
+  src: url(../../../../assets/Fonts/Roboto-Light.ttf);
+}
+.sidebar_links {
+  width: 100%;
+  color: white;
+  margin-left: 30px;
+  padding-top: 20px;
+  font-family: side_font;
+}
+
+.sidebar_button {
+  height: 100%;
+  margin-bottom: 0px;
+  width: 132%;
+  margin-left: -30px;
+
+}
+.sidebar_button2 {
+  width: 132%;
+  height: 100%;
+  margin-left: -30px;
+}
+.sidebar_button:hover {
+  cursor: pointer;
+  transition: 0.5s;
+  background-color: #17191d;
+}
+.sidebar_button2:hover {
+  cursor: pointer;
+  transition: 0.5s;
+  background-color: #17191d;
+}
+
+.icn {
+  color: white;
+  padding-top: 18px;
+  padding-left: 30px;
+}
+.name{
+    margin-left: -30px;
+}
+
+.nav-link{
+  transition: 0.3s;
+  color: white;
+  background-color: #17191d;
+}
+.nav-text{
+  color: #6dd0dd;
+  font-weight: 500;
+}

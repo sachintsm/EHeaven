@@ -1,0 +1,225 @@
+@font-face {
+  font-family: side_font;
+  src: url(../../../../assets/Fonts/Roboto-Regular.ttf);
+}
+
+.back_gr {
+  // background-color:#F8F9FA;
+  position: relative;
+  margin-top: -64px;
+  min-height: 670px;
+  width: 100%;
+  background: url("../../../../assets/backgrounds/1772242.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+}
+.sidebar_links {
+  width: 100%;
+  color: rgb(91, 91, 91);
+  margin-left: 50px;
+  padding-top: 15px;
+  font-family: side_font;
+  font-weight: 300;
+  text-align: left;
+  font-size: 17px;
+}
+
+.sidebar_button {
+  height: 85%;
+  margin-bottom: 0px;
+}
+
+.sidebar_button:hover {
+  cursor: pointer;
+  transition: 0.7s;
+  .icons {
+    color: white;
+  }
+  .sidebar_links {
+    color: white;
+  }
+}
+
+.icons {
+  font-size: 50px;
+}
+
+.nav-link {
+  transition: 0.3s;
+  color: white;
+  background-color: #17191d;
+}
+.nav-text {
+  color: #6dd0dd;
+  font-weight: 500;
+}
+/********************************************/
+// .menu_div {
+//   width: 100%;
+//   height: 70px;
+//   border-radius: 5px;
+//   // border: 1px rgb(117, 117, 117) solid;
+//   box-shadow: 0px 0px 8px rgb(19, 19, 19);
+//   margin-bottom: 30px;
+// }
+// .menu_div:hover{
+//   border-right: 5px orangered solid;
+//   border-left: 3px orangered solid;
+//   cursor: pointer;
+//   transition: 0.1s;
+// }
+
+// .div_icn {
+//   border-top-left-radius: 4px;
+//   border-bottom-left-radius: 4px;
+//   margin-left: -0.5px;
+// }
+
+// .icn {
+//   margin-top: 15px;
+//   margin-left: -8px;
+//   color: white;
+//   font-size: 40px;
+//   width: 100%;
+// }
+// .div_text {
+//   border-top-right-radius: 5px;
+//   border-bottom-right-radius: 5px;
+//   background-color: rgb(0, 0, 0);
+//   // opacity: 0.8  ;
+
+// }
+
+// .txt {
+//   margin-top: 22px;
+//   text-align: left;
+//   font-size: 1.1em;
+//   font-weight: 500px;
+//   color: rgb(70, 70, 70);
+// }
+/********************************************************************/
+.menu_icon{
+  color: rgb(255, 255, 255);
+  font-size: 30px;
+  text-align: right;
+  margin-top: 8px;
+  margin-left: -5px;
+  border-top-left-radius: 5px;
+}
+
+.menu_text{
+  margin-top: 9px;
+  margin-bottom: -9px;
+  color: rgb(255, 255, 255);
+  font-size: 17px;
+  text-align: left;
+  font-family: side_font;
+  margin-left: 8px;
+}
+
+.menu_icon_back{
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+.menu_text_back{
+  margin-left: -10px;
+  // background-color: black;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  // opacity: 0.5;
+  background-color:rgba(0, 0, 0,.5);
+
+}
+
+.menu_div{
+  width: 70%;
+  float: left;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.menu_div:hover{
+  margin-left: 15px;
+  transition: 0.8s;
+}
+
+/**********************************************************************/
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #000;
+}
+
+.ehaeaven {
+  // margin-top: 130px;
+  position: relative;
+  margin-left: -100px;
+  width: 130%;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  // text-transform: uppercase;
+  font-size: 100px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgb(252, 252, 252), rgb(245, 245, 245));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 1s linear ;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+@keyframes animate {
+  0% {
+    background-position: -500%;
+  }
+  100% {
+    background-position: 0%;
+  }
+}
+.subEheaven{
+  margin-top: -25px;
+  margin-left: -100px;
+  width: 130%;
+  position: relative;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  // text-transform: uppercase;
+  font-size: 30px;
+  font-weight: 550;
+  // letter-spacing: 2px;
+  overflow: hidden;
+  background: linear-gradient(90deg, rgb(245, 245, 245), rgb(245, 245, 245));
+  background-repeat: no-repeat;
+  background-size: 80%;
+  animation: animate 1s linear ;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: rgba(255, 255, 255, 0);
+}
+
+.quotesTop{
+  margin-left: 20px;
+  margin-top: 60px;
+  font-family: cursive;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  -webkit-text-fill-color: rgb(255, 255, 255);
+  text-shadow: 1px 1px rgb(0, 0, 0);
+
+}
+.quotesSub{
+  margin-left: 350px;
+  margin-top: -10px;
+  font-weight: bold;
+  font-style: italic;
+  font-family: cursive;
+  color: rgb(255, 255, 255);
+  font-size: 20px; 
+}

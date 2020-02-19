@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { StickyHeaderDirective } from './sticky-header.directive';
+export { StickyHeaderModule } from './sticky-header.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290Ijoibmc6Ly9hbmd1bGFyLWJvb3RzdHJhcC1tZC8iLCJzb3VyY2VzIjpbImxpYi9mcmVlL3N0aWNreS1oZWFkZXIvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6Ijs7OztBQUFBLHNDQUFjLDJCQUEyQixDQUFDO0FBQzFDLG1DQUFjLHdCQUF3QixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0ICogZnJvbSAnLi9zdGlja3ktaGVhZGVyLmRpcmVjdGl2ZSc7XG5leHBvcnQgKiBmcm9tICcuL3N0aWNreS1oZWFkZXIubW9kdWxlJztcbiJdfQ==

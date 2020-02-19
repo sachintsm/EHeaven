@@ -1,0 +1,7 @@
+/**
+ * @fileoverview added by tsickle
+ * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ */
+export { WavesDirective } from './waves-effect.directive';
+export { WavesModule } from './waves.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290Ijoibmc6Ly9hbmd1bGFyLWJvb3RzdHJhcC1tZC8iLCJzb3VyY2VzIjpbImxpYi9mcmVlL3dhdmVzL2luZGV4LnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7QUFBQSxPQUFPLEVBQUUsY0FBYyxFQUFFLE1BQU0sMEJBQTBCLENBQUM7QUFDMUQsT0FBTyxFQUFFLFdBQVcsRUFBRSxNQUFNLGdCQUFnQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IHsgV2F2ZXNEaXJlY3RpdmUgfSBmcm9tICcuL3dhdmVzLWVmZmVjdC5kaXJlY3RpdmUnO1xuZXhwb3J0IHsgV2F2ZXNNb2R1bGUgfSBmcm9tICcuL3dhdmVzLm1vZHVsZSc7XG4iXX0=

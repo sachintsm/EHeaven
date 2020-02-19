@@ -1,0 +1,202 @@
+<div class="row">
+    <!-- //School name and top division -->
+    <div class="container-fluid back_gr">
+        <app-navbar2></app-navbar2>
+
+        <!-- top div -->
+        <div class="row">
+            <div class="container" style="text-align: center">
+                <img src="../../../assets/logo/school_logo.png" class="logo_img">
+
+            </div>
+            <div class="container">
+                <h1 class="scl_name" style="text-align: center">St. John's College</h1>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <p class="school_des" style="  padding-top: 40px">
+                            St. John's College, started in 1915 and is the only boys' school in Nugegoda,
+                            Sri Lanka. It contains two primary sections and upper school.
+                        </p>
+                        <p class="school_des" style="  padding-top: 20px;">
+                            Nugegoda had no
+                            English School until 1915. St. John's School commenced with 14 pupils on 5 May
+                            1915. In 1934, the mixed school of St. John's was separated into separate Boys
+                            and Girls schools,with the boys school known as the College of St. John, Nugeogda.
+                        </p>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <p class="school_map" style="  padding-top: 40px">
+                            Location :
+                        </p>
+                        <iframe class="map"
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d990.2931464330767!2d79.889914!3d6.869913!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc6d6e11477225b6e!2sSt.+John&#39;s+College!5e0!3m2!1sen!2sus!4v1557254222342!5m2!1sen!2sus"
+                            width="300" height="225" frameborder="10" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="container-fluid" style="background-color:#F8F9FA">
+        <p style="text-align: center; margin-top: 30px; margin-bottom: -30px">
+            <img src="../../../assets/icons/chevron-down-solid.svg" style="width: 20px; ">
+        </p>
+        <p class="news_head">- Newsfeed - </p>
+    </div>
+    <!-- //news feed mat card division -->
+    <div class="container-fluid" style="background-color:#F8F9FA">
+        <div class="news_feeds">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3" *ngFor="let new of news">
+                        <div class="flip-box">
+                            <div class="flip-box-inner">
+                                <div class="flip-box-front">
+                                    <mat-card class="news-card ">
+                                        <mat-card-header>
+                                            <div mat-card-avatar class="example-header-image"></div>
+                                            <mat-card-title>{{new.topic}}</mat-card-title>
+                                            <mat-card-subtitle style="text-align: left;">
+                                                {{new.date | date:'yyyy-MM-dd HH:mm:ss'}}
+                                            </mat-card-subtitle>
+                                        </mat-card-header>
+                                        <img mat-card-image
+                                            src="http://localhost:3000/news/newsAttachment/{{new.filePath}}"
+                                            class="card-img">
+                                        <mat-card-content style="text-align: justify;">
+                                            <p>{{new.newsSumery}}</p>
+
+                                        </mat-card-content>
+                                        <mat-card-actions>
+                                        </mat-card-actions>
+                                    </mat-card>
+                                </div>
+                                <div class="flip-box-back">
+                                    <h4>{{new.topic}}</h4>
+                                    <p style="text-align: justify;">{{new.news}}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- //photo galary div -->
+<div class="row">
+    <div class="back_gr" style="padding-bottom: 20px;">
+
+        <div class="container-fluid">
+            <p style="text-align: center; margin-top: 30px; margin-bottom: -30px">
+                <img src="../../../assets/icons/chevron-down-solid.svg" style="width: 20px; ">
+            </p>
+            <p class="news_head">- Gallery - </p>
+        </div>
+
+        <!-- //slideshow division  -->
+        <div class="container-fluid" style="background-color: #333333;">
+            <mdb-carousel class="carousel slide carousel-fade" [animation]="'carousel-fade'">
+                <mdb-carousel-item>
+                    <div class="view w-100">
+                        <img class="d-block w-100" src="../../../assets/slideshow/RWP_1065.jpg" alt="First slide">
+                        <!-- <div class="mask rgba-black-light waves-light" mdbWavesEffect></div> -->
+                    </div>
+
+                </mdb-carousel-item>
+                <mdb-carousel-item>
+                    <div class="view w-100">
+                        <img class="d-block w-100" src="../../../assets/slideshow/RWP_1093.jpg" alt="Second slide">
+                        <div class="mask rgba-black-strong waves-light" mdbWavesEffect></div>
+                    </div>
+
+                </mdb-carousel-item>
+                <mdb-carousel-item>
+                    <div class="view w-100">
+                        <img class="d-block w-100" src="../../../assets/slideshow/RWP_1099.jpg" alt="Third slide">
+                        <div class="mask rgba-black-slight waves-light" mdbWavesEffect></div>
+                    </div>
+
+                </mdb-carousel-item>
+
+            </mdb-carousel>
+
+        </div>
+
+        <div class="container-fluid" style=" height: 20px;"></div>
+
+        <!-- //photo collection division  -->
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="../../../assets/slideshow/RWP_1119.jpg" style="width: 102%">
+                </div>
+                <div class="col-md-4">
+                    <img src="../../../assets/backgrounds//RWP_1112.jpg" style="width: 102%; margin-left: -5px">
+                </div>
+                <div class="col-md-4">
+                    <img src="../../../assets/slideshow/RWP_1099.jpg" style="width: 102%; margin-left: -10px">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- //our vision division  -->
+<div class="row">
+    <div class="container-fluid" style="background-color:#F8F9FA">
+        <p style="text-align: center; margin-top: 30px; margin-bottom: -30px">
+            <img src="../../../assets/icons/chevron-down-solid.svg" style="width: 20px; ">
+        </p>
+        <p class="news_head">- Our Vision - </p>
+    </div>
+    <div class="container-fluid" style="background-color: #F8F9FA">
+        <div>
+            <div class="container">
+                <p class="vision_txt">*** " If you are planning for a year, sow rice. If you are planning for a
+                    decade,
+                    plant trees. If you are planning for a lifetime, Educate people." ***</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- showing upcomming events div -->
+<div class="row" style="height: 500px;">
+    <div class="container-fluid" style="background-color:#333333">
+        <p style="text-align: center; margin-top: 30px; margin-bottom: -30px">
+            <img src="../../../assets/icons/chevron-down-solid.svg" style="width: 20px; ">
+        </p>
+        <p class="news_head">- Upcoming Events - </p>
+    </div>
+    <div class="container-fluid" style="background-color:#333333">
+        <div class="container">
+            <div class="row" style="padding-bottom: 20px">
+                <div class="col-md-6" style="margin-bottom: 30px;" *ngFor="let evnt of events">
+                    <div class="row" style="height: 100px; width: 100%">
+                        <div class="col-md-3 date_div">
+                            <p class="event_month">{{evnt.day | date:'MMM' }}</p>
+                            <p class="event_date">{{evnt.day| date:'dd'}}</p>
+                        </div>
+                        <div class="col-md-9 content_div">
+                            <div class="row">
+
+                                <p style="font-size: 20px; padding-top: 10px; font-weight:500;">{{evnt.head}}</p>
+
+                            </div>
+                            <div class="row">
+                                <p style="text-align: justify; margin-top: -20px; color: grey;">
+                                    {{evnt.eventdetail}}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

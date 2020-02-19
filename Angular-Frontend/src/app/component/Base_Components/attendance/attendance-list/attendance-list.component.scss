@@ -1,0 +1,125 @@
+.img_logo{
+    width: 40%;
+    margin: auto;
+    padding-top: 50px;
+  }
+  .stu_matCard{
+    height: 40px;
+    margin-bottom: 5px
+  }
+  .reg_btn{
+    width: 30%;
+    color: rgb(255, 255, 255);
+    background-color: rgb(0, 140, 255);
+    border-color:  rgb(0, 140, 255);
+    box-shadow: 0px 5px 5px rgb(134, 132, 245);
+  }
+  .my_mat{
+    height: 20px;
+    margin-top: 5px;
+  }
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #2196F3;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
+  .active-pink-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #f48fb1;
+    box-shadow: 0 1px 0 0 #f48fb1;
+    }
+    .active-pink input[type=text] {
+    border-bottom: 1px solid #f48fb1;
+    box-shadow: 0 1px 0 0 #f48fb1;
+    }
+    .active-purple-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #ce93d8;
+    box-shadow: 0 1px 0 0 #ce93d8;
+    }
+    .active-purple input[type=text] {
+    border-bottom: 1px solid #ce93d8;
+    box-shadow: 0 1px 0 0 #ce93d8;
+    }
+    .active-cyan-2 input[type=text]:focus:not([readonly]) {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+    }
+    .active-cyan input[type=text] {
+    border-bottom: 1px solid #4dd0e1;
+    box-shadow: 0 1px 0 0 #4dd0e1;
+    }
+    .active-cyan .fa, .active-cyan-2 .fa {
+    color: #4dd0e1;
+    }
+    .active-purple .fa, .active-purple-2 .fa {
+    color: #ce93d8;
+    }
+    .active-pink .fa, .active-pink-2 .fa {
+    color: #f48fb1;
+    }
+    // mat-grid-tile{
+    //   background-color: yellow;
+    // }
+    .example-form {
+      min-width: 150px;
+      width: 100%;
+    }
+    
+    .example-full-width {
+      width: 100%;
+    }

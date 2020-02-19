@@ -1,0 +1,115 @@
+<div class="row">
+    <div class="container-fluid" style="background-color:#F8F9FA;min-height: 750px;">
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-10">
+                        <h2 class="topic">Mail-Box
+                        </h2>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <!-- show all the mails  -->
+            <div class="container" style="margin-bottom: 20px;margin-top: 30px;">
+                <div class="row">
+                    <div class="col-md-5">
+                        <mat-card class="mat_card" *ngFor="let mail of mails" (click)="readMail($event, mail._id)">
+                            <div class="container-fluid" >
+                                <div class="row" style="margin-left: -30px;" >
+                                    <div class="col-md-9" (click)="readMail($event, mail._id)">
+                                        <div class="row">
+                                            <div class="col-md-2">
+                                                <i *ngIf="mail.state == 'read'" class="material-icons circle_read">
+                                                    check_circle
+                                                </i>
+                                                <i *ngIf="mail.state == 'pending'"
+                                                    class="material-icons circle_not_read">
+                                                    check_circle
+                                                </i>
+                                            </div>
+
+                                            <div class="col-md-10">
+                                                <div class="row">
+                                                    <p class="name">{{mail.name}}</p>
+                                                </div>
+
+                                                <div class="row" style="margin-top: -15px;"
+                                                    (click)="readMail($event, mail._id)">
+                                                    <p class="subject">{{mail.subject}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-md-3" style="text-align: right;">
+                                        <div class="row">
+                                            <div class="col-md-12" (click)="readMail($event, mail._id)">
+                                                <p style="font-size: 12px;margin-right: -20px;"> {{mail.date  | date:'yyyy-MM-dd'}}</p>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-12" style="margin-top: -10px;">
+                                                    <i class="material-icons delete_btn"
+                                                        (click)="deleteMail($delEvent, mail._id)">delete</i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </mat-card>
+                    </div>
+
+                    <!-- show only selected mail -->
+                    <div class="col-md-7">
+                        <mat-card class="view_card" *ngIf="viewBox == true">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <i class="material-icons person_icn">person</i>
+                                        <!-- <img src="../../../../assets/icons/newspaper-regular.svg"> -->
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="row">
+                                            <p class="view_name">{{msg.name}}</p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="view_email"><{{msg.email}}></p>
+                                        </div>
+                                        <div class="row">
+                                            <p class="view_email">{{msg.mobile}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="container">
+                                            <div class="row">
+                                                <div class="col-md-9">
+                                                    <p class="view_date">{{msg.date | date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <i class="material-icons view_rep_btn">reply</i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="container">
+                                <div class="row">
+                                    <p class="view_subject">{{msg.subject}}</p>
+                                </div>
+                                <div class="row">
+                                    <p class="view_message">{{msg.message}}</p>
+                                </div>
+                            </div>
+
+                        </mat-card>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>

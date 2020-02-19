@@ -1,0 +1,53 @@
+.body {
+  background-color: white;
+  height: 100px;
+}
+
+#textbox {
+  height: 200px;
+}
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+.border {
+  margin: auto;
+  border-style: ridge;
+  padding-top: 50px;
+  padding-right: 80px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  width: 1000px;
+}
+.box_border {
+  border-radius: 3px;
+}
+
+.reg-frm {
+  padding-top: 40px;
+  width: 80%;
+  text-align: center;
+  margin: auto;
+}
+
+.reg_btn {
+  width: 50%;
+  margin: auto;
+  color: aliceblue;
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+}
+.period_txt {
+  font-size: 10px;
+  color: rgb(144, 142, 142);
+  text-align: left;
+  margin-bottom: 0px;
+}

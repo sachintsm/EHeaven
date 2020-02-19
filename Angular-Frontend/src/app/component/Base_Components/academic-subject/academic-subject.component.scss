@@ -1,0 +1,58 @@
+@font-face {
+  font-family: topic_font;
+  src: url(../../../../assets/Fonts/RobotoSlab.ttf);
+}
+
+.topic {
+  color: rgb(0, 140, 255);
+  font-weight: 300;
+  padding-top: 50px;
+  font-family: topic_font;
+  font-weight: 300;
+}
+.select_subject {
+  padding-top: 40px;
+  margin: auto;
+  text-align: center;
+  font-size: 30px;
+}
+
+.img_logo {
+  padding-top: 30px;
+  width: 30%;
+  margin: auto;
+}
+
+.src_box {
+  // width: 80%;
+  margin: auto;
+  padding-top: 23px;
+}
+.src_btn {
+  background-color: rgb(0, 140, 255);
+}
+
+.academic-card {
+  max-width: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.academicAdd-card {
+  max-width: 100%;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.submit_btn {
+  background-color: rgb(0, 140, 255);
+  border-color: rgb(0, 140, 255);
+}
+
+.submit_btn:hover {
+  background-color: rgb(0, 103, 187);
+}

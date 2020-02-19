@@ -1,0 +1,282 @@
+<div class="row">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- <div class="col-md-2">
+                <app-sidebar></app-sidebar>
+              </div> -->
+      <div
+        class="container-fluid "
+        style="background-color:#F8F9FA; min-height: 600px;"
+      >
+        <div>
+          <div class="container" style="padding-top: 50px">
+            <h2 class="topic">Student - Certification</h2>
+            <!-- <hr> -->
+          </div>
+          <div
+            style="padding-left: 50px; padding-right: 50px; padding-bottom: 50px"
+          >
+            <mat-tab-group>
+              <mat-tab label="REQUEST CERTIFICATES">
+                <br />
+                <mat-card
+                  class="border text-center p-5 reg-frm"
+                  [formGroup]="CertificationForm"
+                >
+                  <img
+                    src="../../../assets/logo/logo.png"
+                    style="width:50%; margin-bottom: 50px"
+                  />
+
+                  <div class="form-row mb-4">
+                    <label>Name to be appeared in the Certificate :</label>
+                    <input
+                      [class.is-invalid]="
+                        CertificationForm.get('certName').invalid &&
+                        CertificationForm.get('certName').touched
+                      "
+                      formControlName="certName"
+                      type="text"
+                      class="form-control box_border"
+                    />
+                    <small
+                      [class.d-none]="
+                        CertificationForm.get('certName').valid ||
+                        CertificationForm.get('certName').untouched
+                      "
+                      class="text-danger"
+                      >Name is required *</small
+                    >
+                  </div>
+
+                  <div class="form-row mb-4">
+                    <label>Certification Required :</label>
+                    <mat-select
+                      #t
+                      class="browser-default custom-select mb-4 box_border"
+                      formControlName="certType"
+                      (selectionChange)="togglefunction(t.value)"
+                    >
+                      <!-- <mat-option value="None" selected></mat-option> -->
+                      <mat-option
+                        style="text-align: left"
+                        *ngFor="let cert of certificates"
+                        [value]="cert"
+                        >{{ cert }}
+                      </mat-option>
+                    </mat-select>
+                    <!-- {{t.value}} -->
+                  </div>
+
+                  <div *ngIf="flag" formGroupName="exam">
+                    <div class="form-row mb-4">
+                      <label>Examination :</label>
+                      <mat-select
+                        class="browser-default custom-select mb-4 box_border"
+                        formControlName="examName"
+                      >
+                        <!-- <mat-option value="None" selected></mat-option> -->
+                        <mat-option
+                          style="text-align: left"
+                          *ngFor="let exams of exams"
+                          [value]="exams"
+                          >{{ exams }}
+                        </mat-option>
+                      </mat-select>
+                    </div>
+
+                    <div class="form-row mb-4">
+                      <label>Select Year of Examination :</label>
+                      <mat-select
+                        class="browser-default custom-select mb-4 box_border"
+                        formControlName="examYear"
+                      >
+                        <!-- <mat-option value="None" selected></mat-option> -->
+                        <mat-option
+                          style="text-align: left"
+                          *ngFor="let yoe of yearofExam"
+                          [value]="yoe"
+                          >{{ yoe }}
+                        </mat-option>
+                      </mat-select>
+                    </div>
+
+                    <div class="form-row mb-4">
+                      <label>Examination Index Number :</label>
+                      <input
+                        formControlName="examIndex"
+                        type="text"
+                        class="form-control box_border"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- {{CertificationForm.value | json}} -->
+
+                  <button
+                    mat-raised-button
+                    type="submit"
+                    class="btn btn-info my-4 btn-block reg_btn box_border"
+                    (click)="submitToApproval()"
+                  >
+                    Submit for Approval
+                  </button>
+                </mat-card>
+              </mat-tab>
+
+              <!-- /*****************************************************************************************************************************/ -->
+
+              <mat-tab label="PENDING CERTIFICATES">
+                <mat-card>
+                  <!-- {{pendingCert | json}} -->
+                  <mat-list>
+                    <mat-list-item *ngFor="let cert of pendingCert">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <h3 mat-line>{{ cert.certType }}</h3>
+                      <h3 mat-line>Requested On :</h3>
+                      <p mat-line style="color: rgb(117, 117, 117)">
+                        {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                      </p>
+                      <h2 mat-line style="color: rgb(0, 20, 36)">
+                        Certificate Status : {{ cert.certState }}
+                      </h2>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card>
+              </mat-tab>
+
+              <!-- /*****************************************************************************************************************************/ -->
+              <mat-tab label="APPROVED CERTIFICATES">
+                <mat-card>
+                  <!-- {{issuedCert | json}} -->
+                  <mat-list>
+                    <mat-list-item *ngFor="let cert of issuedCert">
+                      <mat-icon mat-list-icon>note</mat-icon>
+                      <h3 mat-line>{{ cert.certType }}</h3>
+                      <p mat-line style="color: rgb(117, 117, 117)">
+                        {{ cert.reqDate | date: "yyyy-MM-dd HH:mm:ss" }}
+                      </p>
+                      <!-- {{cert._id}} -->
+                      <button
+                        type="button"
+                        class="btn btn_1"
+                        (click)="viewCert()"
+                      >
+                        View
+                      </button>
+                    </mat-list-item>
+                  </mat-list>
+                </mat-card>
+              </mat-tab>
+
+              <!-- /*****************************************************************************************************************************/ -->
+              <!-- <mat-tab label="VIEW CERTIFICATES">
+                          <mat-card> -->
+              <!-- {{issuedCert | json}} -->
+              <!-- <mat-list>
+                              <mat-list-item *ngFor="let cert of issuedCert">
+                                <mat-icon mat-list-icon>note</mat-icon>
+                                <h3 mat-line>{{cert.certType}}</h3>
+                                <p mat-line style="color: rgb(117, 117, 117)"> {{cert.reqDate | date:'yyyy-MM-dd HH:mm:ss'}} </p>
+
+                              </mat-list-item>
+                            </mat-list> -->
+              <!-- <mat-accordion>
+                              <mat-expansion-panel>
+                                <mat-expansion-panel-header>Student Status Verification</mat-expansion-panel-header>
+                                <mat-card>
+                                  <button type="button" class="btn btn_1" (click)="viewCert('cert')"  >View</button>
+                                  <mat-list>
+                                    <mat-list-item *ngFor="let cert of viewstuStatus">
+
+                                      <mat-icon mat-list-icon>note</mat-icon>
+                                      <h3 mat-line>User ID : {{cert.userid}} </h3>
+                                      <h3 mat-line>Certificate Type : {{cert.certType}}</h3>
+                                      <p mat-line style="color: rgb(117, 117, 117)"> Requested On : {{cert.reqDate | date:'yyyy-MM-dd HH:mm:ss'}} </p>
+
+                                      <mat-divider></mat-divider>
+
+                                    </mat-list-item>
+                                  </mat-list>
+                                </mat-card>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel>
+                                  <mat-expansion-panel-header>Character Certificate</mat-expansion-panel-header>
+                                  <mat-card>
+                                    <mat-list>
+                                      <mat-list-item *ngFor="let cert of viewcharacStatus">
+                                        <mat-icon mat-list-icon>note</mat-icon>
+                                        <h3 mat-line>User ID : {{cert.userid}} </h3>
+                                        <h3 mat-line>Certificate Type : {{cert.certType}}</h3>
+                                        <p mat-line style="color: rgb(117, 117, 117)"> Requested On : {{cert.reqDate | date:'yyyy-MM-dd HH:mm:ss'}} </p>
+                                        <button type="button" class="btn btn_1" (click)="viewCert('cert')"  >View</button>
+                                        <mat-divider></mat-divider>
+
+                                      </mat-list-item>
+                                    </mat-list>
+                                  </mat-card>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel>
+                                    <mat-expansion-panel-header>Leaving Certificate</mat-expansion-panel-header>
+                                    <mat-card>
+                                      <mat-list>
+                                        <mat-list-item *ngFor="let cert of viewleavStatus">
+                                          <mat-icon mat-list-icon>note</mat-icon>
+                                          <h3 mat-line>User ID : {{cert.userid}} </h3>
+                                          <h3 mat-line>Certificate Type : {{cert.certType}}</h3>
+                                          <p mat-line style="color: rgb(117, 117, 117)"> Requested On : {{cert.reqDate | date:'yyyy-MM-dd HH:mm:ss'}} </p>
+                                          <button type="button" class="btn btn_1" (click)="viewCert('cert')"  >View</button>
+                                          <mat-divider></mat-divider>
+
+                                        </mat-list-item>
+                                      </mat-list>
+                                    </mat-card>
+                              </mat-expansion-panel>
+                              <mat-expansion-panel>
+                                      <mat-expansion-panel-header>A/L Certificate</mat-expansion-panel-header>
+
+                                      <mat-card>
+                                        <mat-list>
+                                          <mat-list-item *ngFor="let cert of viewalStatus">
+                                            <mat-icon mat-list-icon>note</mat-icon>
+                                            <h3 mat-line>User ID : {{cert.userid}} </h3>
+                                            <h3 mat-line>Certificate Type : {{cert.certType}}</h3>
+                                            <p mat-line style="color: rgb(117, 117, 117)"> Requested On : {{cert.reqDate | date:'yyyy-MM-dd HH:mm:ss'}} </p>
+                                            <button type="button" class="btn btn_1" (click)="viewCert('cert')"  >View</button>
+                                            <mat-divider></mat-divider>
+
+                                          </mat-list-item>
+                                        </mat-list>
+                                      </mat-card>
+
+                              </mat-expansion-panel>
+                              <mat-expansion-panel>
+                                <mat-expansion-panel-header>O/L Certificate</mat-expansion-panel-header>
+
+                                <mat-card>
+                                  <mat-list>
+                                    <mat-list-item *ngFor="let cert of viewolStatus">
+                                      <mat-icon mat-list-icon>note</mat-icon>
+                                      <h3 mat-line>User ID : {{cert.userid}} </h3>
+                                      <h3 mat-line>Certificate Type : {{cert.certType}}</h3>
+                                      <p mat-line style="color: rgb(117, 117, 117)"> Requested On : {{cert.reqDate | date:'yyyy-MM-dd HH:mm:ss'}} </p>
+                                      <button type="button" class="btn btn_1" (click)="viewCert('cert')"  >View</button>
+                                      <mat-divider></mat-divider>
+
+                                    </mat-list-item>
+                                  </mat-list>
+                                </mat-card>
+
+                              </mat-expansion-panel>
+                            </mat-accordion> -->
+
+              <!--
+                          </mat-card>
+                        </mat-tab> -->
+            </mat-tab-group>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

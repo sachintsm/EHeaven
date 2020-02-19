@@ -1,0 +1,99 @@
+<div class="row">
+    <div class="container-fluid">
+        <div class="row">
+            
+            <div class="container-fluid" style="background-color:rgb(255, 255, 255)">
+                <div class="container" style="padding-top: 50px">
+                    <h2 style="color:  rgb(0, 140, 255); font-weight: bold">{{classname}} Class Student List</h2>
+                    <hr>
+                </div>
+                <div class="container">
+                    <mat-card style="margin-bottom: 30px">
+                        <div class="row">
+                            <img src="../../../assets/logo/logo.png" class="img_logo">
+                        </div>
+                        <div class="container" style="padding-top: 50px">
+                            
+                            <form #userForm="ngForm" class="text-center border p-5 reg-frm " (ngSubmit)="onSubmit(userForm)" novalidate *ngIf="mainFlag">
+                                <div class="container">
+                                    <div class="row" style="padding-top: 20px">
+                                        <div class="col-md-2">
+                                            <h6>Registration ID</h6>
+                                        </div>
+                                        <div class="col-md-6" style="text-align: left">
+                                            <h6> &nbsp;&nbsp;&nbsp;Student Name</h6>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h6> Attendance</h6>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="container">
+                                    <mat-card cols="3" *ngFor="let student of students;index as i" class="stu_matCard">
+                                        <div class="row" style="margin-top: -7px">
+                                            <div class="col-md-2">
+                                                <mat-card-content>{{student.userid}}</mat-card-content>
+                                            </div>
+                                            <div class="col-md-6">
+                                            <mat-card-content style="text-align: left">{{student.name}}</mat-card-content>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <mat-card-content>
+                                                    <div class="row">
+                                                        <div class="col-md-6" style="text-align: right">
+                                                            <mat-slide-toggle id="{{student.name}}" color="primary"   name="{{i}}" (click)="count(i)" ngModel></mat-slide-toggle>
+                                                        </div>
+                                                        <div class="col-md-6" style="text-align: left">
+                                                            <div>
+                                                                &nbsp; {{toggle[i]}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </mat-card-content>
+                                            </div>
+                                        </div>
+                                    </mat-card>
+                                </div>
+                                <div class="row">
+                                    <button type="submit" style="margin: auto" class="btn my-4 reg_btn box_border">Submit</button>
+                                </div>
+
+                            </form>
+                        </div>
+                        <div class="container" style="padding-top: 20px">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>Date </p>
+                                </div>
+                                <div class="col-md-9"> 
+                                    : {{ today | date }}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>Number of Students </p>
+                                </div>
+                                <div class="col-md-9">
+                                    : {{numberOfStudent}}
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <p>Number of Present students </p>
+                                </div>
+                                <div class="col-md-9">
+                                    : {{presentStu}} </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <p>Number of Absent students </p>
+                                    </div>
+                                <div class="col-md-9">: {{numberOfStudent-presentStu}} </div>
+                            </div>        
+                        </div>
+                    </mat-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
