@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const User = require('../models/users');
-const jwt = require('jsonwebtoken');
 const config = require('../config/database');
 const multer = require('multer');
 const pdfDoc = require('pdf-lib');

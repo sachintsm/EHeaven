@@ -155,7 +155,7 @@ export class StudentProgressComponent implements OnInit {
     const url3 = "http://localhost:3000/student_marks/subjectMarks"
     this.http.get<any>(url3 + "/" + this.userid).subscribe(res => {
       this.stuSubMarks = res
-      console.log(res);
+      // console.log(res);
     })
 
     /*get all the subject names for the subject searching combo box*/
@@ -215,6 +215,7 @@ export class StudentProgressComponent implements OnInit {
 
       this.http.post<any>(url2, objectData2).subscribe(res => {
         this.allStuMarks = res;
+        
       })
       this.marksTable = true
     })
@@ -267,7 +268,6 @@ export class StudentProgressComponent implements OnInit {
 
   // get one student data clicking tabele
   studentDetails(stdata) {
-    console.log(stdata);
     const studentObject = {
       term: stdata.term,
       year: stdata.year,
@@ -279,7 +279,6 @@ export class StudentProgressComponent implements OnInit {
     }
     const url = "http://localhost:3000/student_marks/oneStudentData"
     this.http.post<any>(url, studentObject).subscribe(res => {
-      console.log(res)
       this.eachStudentData = res
       this.eachStuDataDiv = true    //set data dive visual
     })
